@@ -12,6 +12,7 @@
 		0EA35BF91F7C625400842F4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BF71F7C625400842F4B /* Main.storyboard */; };
 		0EA35BFB1F7C625400842F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BFA1F7C625400842F4B /* Assets.xcassets */; };
 		0EA35BFE1F7C625400842F4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */; };
+		0EA35C061F7C62A400842F4B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35C051F7C62A400842F4B /* Cartfile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		0EA35BFA1F7C625400842F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EA35BFD1F7C625400842F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EA35BFF1F7C625400842F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EA35C051F7C62A400842F4B /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		0EA35C071F7C62E800842F4B /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +41,8 @@
 		0EA35BE71F7C625400842F4B = {
 			isa = PBXGroup;
 			children = (
+				0EA35C071F7C62E800842F4B /* bridge.h */,
+				0EA35C051F7C62A400842F4B /* Cartfile */,
 				0EA35BF21F7C625400842F4B /* Comicvinetest */,
 				0EA35BF11F7C625400842F4B /* Products */,
 			);
@@ -125,6 +130,7 @@
 			files = (
 				0EA35BFE1F7C625400842F4B /* LaunchScreen.storyboard in Resources */,
 				0EA35BFB1F7C625400842F4B /* Assets.xcassets in Resources */,
+				0EA35C061F7C62A400842F4B /* Cartfile in Resources */,
 				0EA35BF91F7C625400842F4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,11 +281,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V9843VC6X4;
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.Comicvinetest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comicvinetest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -290,11 +298,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V9843VC6X4;
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.Comicvinetest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comicvinetest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

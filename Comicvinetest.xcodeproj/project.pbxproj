@@ -7,24 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E3243D31F7D330B00EBCA3A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E3243D21F7D330B00EBCA3A /* Default-568h@2x.png */; };
+		0E47C2211F855BA700AEA3CC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */; };
+		0E47C2231F86722500AEA3CC /* Comicvine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47C2221F86722500AEA3CC /* Comicvine.swift */; };
 		0EA35BF41F7C625400842F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA35BF31F7C625400842F4B /* AppDelegate.swift */; };
-		0EA35BF61F7C625400842F4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA35BF51F7C625400842F4B /* ViewController.swift */; };
 		0EA35BF91F7C625400842F4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BF71F7C625400842F4B /* Main.storyboard */; };
 		0EA35BFB1F7C625400842F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BFA1F7C625400842F4B /* Assets.xcassets */; };
 		0EA35BFE1F7C625400842F4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */; };
 		0EA35C061F7C62A400842F4B /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35C051F7C62A400842F4B /* Cartfile */; };
+		0EA35C101F7C6E3F00842F4B /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA35C0C1F7C6E3400842F4B /* AFNetworking.framework */; };
+		0EA35C111F7C6E3F00842F4B /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA35C0C1F7C6E3400842F4B /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0EA35C121F7C6E3F00842F4B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */; };
+		0EA35C131F7C6E3F00842F4B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0ECDCAC61F8D69A5008DEB8C /* SearchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		0EA35C141F7C6E3F00842F4B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0EA35C131F7C6E3F00842F4B /* SwiftyJSON.framework in Embed Frameworks */,
+				0EA35C111F7C6E3F00842F4B /* AFNetworking.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0E3243D21F7D330B00EBCA3A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		0E47C2221F86722500AEA3CC /* Comicvine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comicvine.swift; sourceTree = "<group>"; };
 		0EA35BF01F7C625400842F4B /* Comicvinetest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comicvinetest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA35BF31F7C625400842F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EA35BF51F7C625400842F4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0EA35BF81F7C625400842F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0EA35BFA1F7C625400842F4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EA35BFD1F7C625400842F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EA35BFF1F7C625400842F4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0EA35C051F7C62A400842F4B /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		0EA35C071F7C62E800842F4B /* bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		0EA35C0C1F7C6E3400842F4B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
+		0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +59,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EA35C121F7C6E3F00842F4B /* SwiftyJSON.framework in Frameworks */,
+				0EA35C101F7C6E3F00842F4B /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,10 +70,14 @@
 		0EA35BE71F7C625400842F4B = {
 			isa = PBXGroup;
 			children = (
+				0E3243D21F7D330B00EBCA3A /* Default-568h@2x.png */,
+				0EA35C0C1F7C6E3400842F4B /* AFNetworking.framework */,
+				0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */,
 				0EA35C071F7C62E800842F4B /* bridge.h */,
 				0EA35C051F7C62A400842F4B /* Cartfile */,
 				0EA35BF21F7C625400842F4B /* Comicvinetest */,
 				0EA35BF11F7C625400842F4B /* Products */,
+				0EA35C0B1F7C6E3300842F4B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,13 +93,22 @@
 			isa = PBXGroup;
 			children = (
 				0EA35BF31F7C625400842F4B /* AppDelegate.swift */,
-				0EA35BF51F7C625400842F4B /* ViewController.swift */,
+				0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */,
 				0EA35BF71F7C625400842F4B /* Main.storyboard */,
 				0EA35BFA1F7C625400842F4B /* Assets.xcassets */,
 				0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */,
 				0EA35BFF1F7C625400842F4B /* Info.plist */,
+				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
+				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
 			);
 			path = Comicvinetest;
+			sourceTree = "<group>";
+		};
+		0EA35C0B1F7C6E3300842F4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -79,6 +121,7 @@
 				0EA35BEC1F7C625400842F4B /* Sources */,
 				0EA35BED1F7C625400842F4B /* Frameworks */,
 				0EA35BEE1F7C625400842F4B /* Resources */,
+				0EA35C141F7C6E3F00842F4B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -131,6 +174,7 @@
 				0EA35BFE1F7C625400842F4B /* LaunchScreen.storyboard in Resources */,
 				0EA35BFB1F7C625400842F4B /* Assets.xcassets in Resources */,
 				0EA35C061F7C62A400842F4B /* Cartfile in Resources */,
+				0E3243D31F7D330B00EBCA3A /* Default-568h@2x.png in Resources */,
 				0EA35BF91F7C625400842F4B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,7 +186,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EA35BF61F7C625400842F4B /* ViewController.swift in Sources */,
+				0E47C2211F855BA700AEA3CC /* SearchTableViewController.swift in Sources */,
+				0ECDCAC61F8D69A5008DEB8C /* SearchDetailsViewController.swift in Sources */,
+				0E47C2231F86722500AEA3CC /* Comicvine.swift in Sources */,
 				0EA35BF41F7C625400842F4B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,7 +263,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -268,7 +314,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -283,7 +329,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V9843VC6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comicvinetest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -300,7 +351,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = V9843VC6X4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comicvinetest;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -22,11 +22,18 @@ class SearchDetailsViewController: UIViewController {
             if let name = comicvine.name {
                 self.nameLabel.text = name
             }
+            
             if let issueNumber = comicvine.issueNumber {
                 self.issueNumberLabel.text = issueNumber
             }
-            if let cover = comicvine.cover {
-                self.coverView.image = cover
+            
+            if let coverUrl = comicvine.coverUrl {
+                let imageData = NSData(contentsOf: URL(string: coverUrl)!)
+                if let imageDataUnwrapped = imageData {
+                    comicvine.cover = imageDataUnwrapped as Data
+                    
+                }
+                self.coverView.image = UIImage(data: comicvine.cover!)
                 
             }
         }

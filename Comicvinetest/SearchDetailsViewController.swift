@@ -27,6 +27,7 @@ class SearchDetailsViewController: UIViewController {
             }
             if let cover = comicvine.cover {
                 self.coverView.image = cover
+                
             }
         }
     }

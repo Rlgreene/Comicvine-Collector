@@ -11,14 +11,14 @@ import UIKit
 class Comicvine: NSObject {
     var issueNumber: String?
     var name: String?
-    var cover: String?
+    var cover: CGImage?
     
-    init (issueNumber: String? = nil, name: String? = nil){
+    init (issueNumber: String?, name: String?){
         self.issueNumber = issueNumber
         self.name = name
+        
     }
-    init?(cover: CGImage) {
-        self.cover = cover
+    init (cover: CGImage?){
+        self.cover = cover 
     }
-    
 }

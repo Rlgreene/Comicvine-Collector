@@ -38,14 +38,20 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             if let results = responseObject["results"] as? [[String: AnyObject]] {
                             self.comicvineResults = [Comicvine]()
                             for result in results {
-                                print(result["volume"]!["name"], result["issue_number"]!)
-                                let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, cover: result["image"]?["medium_url"] as? String)
+                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"])
+                                let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String)
+                                let i = Comicvine(cover: result["image"]?["medium_url"] as? String as? CGImage)
+                                for (i,result) in results {
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
-                                    let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 220, height: 320))
+                                    let imageData = NSData(contentsOf: URL(string: imageURLString)!)
+                                    if let imageDataUnwrapped = imageData {
+                                    let imageView = UIImageView(image: UIImage(data: imageDataUnwrapped as Data))
+                                        imageView.frame = CGRect(x: 0, y: 320 * CGFloat(i), width: 320, height: 320)
                                     if let url = URL(string: imageURLString) {
                                         imageView.setImageWith(url)
-                                        //self.imageView.addSubview(imageView)
                                         self.comicvineResults?.append(c)
+                                        }
+                                    }
                                     }
                                 }
                             }
@@ -91,6 +97,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let c: Comicvine = (comicvineResults? [indexPath.row])!
         cell.textLabel?.text = c.name! + " " + c.issueNumber!
+        
+        
 
         // Configure the cell...
 

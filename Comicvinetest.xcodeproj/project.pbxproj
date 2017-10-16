@@ -20,6 +20,7 @@
 		0EA35C121F7C6E3F00842F4B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */; };
 		0EA35C131F7C6E3F00842F4B /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0ECDCAC61F8D69A5008DEB8C /* SearchDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */; };
+		0ECDCAC81F955B16008DEB8C /* CollectionTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +53,7 @@
 		0EA35C0C1F7C6E3400842F4B /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/iOS/AFNetworking.framework; sourceTree = "<group>"; };
 		0EA35C0D1F7C6E3400842F4B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDetailsViewController.swift; sourceTree = "<group>"; };
+		0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				0EA35BFF1F7C625400842F4B /* Info.plist */,
 				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
 				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
+				0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */,
 			);
 			path = Comicvinetest;
 			sourceTree = "<group>";
@@ -187,6 +190,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E47C2211F855BA700AEA3CC /* SearchTableViewController.swift in Sources */,
+				0ECDCAC81F955B16008DEB8C /* CollectionTableViewController.swift in Sources */,
 				0ECDCAC61F8D69A5008DEB8C /* SearchDetailsViewController.swift in Sources */,
 				0E47C2231F86722500AEA3CC /* Comicvine.swift in Sources */,
 				0EA35BF41F7C625400842F4B /* AppDelegate.swift in Sources */,

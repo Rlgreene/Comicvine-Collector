@@ -43,7 +43,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                                 print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"])
                                 let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String)
                                 
-                                //for (i,result) in results {
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
                                     c.coverUrl = imageURLString
                                     self.comicvineResults?.append(c)

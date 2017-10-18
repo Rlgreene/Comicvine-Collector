@@ -42,12 +42,11 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             for result in results {
                                 print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"])
                                 let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String)
-                                
+                            //code block below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
                                     c.coverUrl = imageURLString
+                                    
                                     self.comicvineResults?.append(c)
-
-                                   
                                 }
                             }
                             self.tableView.reloadData()

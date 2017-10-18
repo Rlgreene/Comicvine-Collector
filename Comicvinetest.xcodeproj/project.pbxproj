@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0E3243D31F7D330B00EBCA3A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0E3243D21F7D330B00EBCA3A /* Default-568h@2x.png */; };
+		0E3BEBFF1F96A969008B559D /* Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3BEBFE1F96A969008B559D /* Collection.swift */; };
+		0E3BEC011F96B19C008B559D /* CollectionNamingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3BEC001F96B19C008B559D /* CollectionNamingViewController.swift */; };
 		0E47C2211F855BA700AEA3CC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */; };
 		0E47C2231F86722500AEA3CC /* Comicvine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47C2221F86722500AEA3CC /* Comicvine.swift */; };
 		0EA35BF41F7C625400842F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA35BF31F7C625400842F4B /* AppDelegate.swift */; };
@@ -40,6 +42,8 @@
 
 /* Begin PBXFileReference section */
 		0E3243D21F7D330B00EBCA3A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0E3BEBFE1F96A969008B559D /* Collection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Collection.swift; sourceTree = "<group>"; };
+		0E3BEC001F96B19C008B559D /* CollectionNamingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionNamingViewController.swift; sourceTree = "<group>"; };
 		0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		0E47C2221F86722500AEA3CC /* Comicvine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comicvine.swift; sourceTree = "<group>"; };
 		0EA35BF01F7C625400842F4B /* Comicvinetest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comicvinetest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,13 +100,15 @@
 			children = (
 				0EA35BF31F7C625400842F4B /* AppDelegate.swift */,
 				0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */,
+				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
+				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
 				0EA35BF71F7C625400842F4B /* Main.storyboard */,
 				0EA35BFA1F7C625400842F4B /* Assets.xcassets */,
 				0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */,
 				0EA35BFF1F7C625400842F4B /* Info.plist */,
-				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
-				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
 				0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */,
+				0E3BEC001F96B19C008B559D /* CollectionNamingViewController.swift */,
+				0E3BEBFE1F96A969008B559D /* Collection.swift */,
 			);
 			path = Comicvinetest;
 			sourceTree = "<group>";
@@ -191,7 +197,9 @@
 			files = (
 				0E47C2211F855BA700AEA3CC /* SearchTableViewController.swift in Sources */,
 				0ECDCAC81F955B16008DEB8C /* CollectionTableViewController.swift in Sources */,
+				0E3BEC011F96B19C008B559D /* CollectionNamingViewController.swift in Sources */,
 				0ECDCAC61F8D69A5008DEB8C /* SearchDetailsViewController.swift in Sources */,
+				0E3BEBFF1F96A969008B559D /* Collection.swift in Sources */,
 				0E47C2231F86722500AEA3CC /* Comicvine.swift in Sources */,
 				0EA35BF41F7C625400842F4B /* AppDelegate.swift in Sources */,
 			);

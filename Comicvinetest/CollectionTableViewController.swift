@@ -18,7 +18,8 @@ class CollectionTableViewController: UITableViewController {
             self.collections = c
         }else {
             appDelegate.collections = self.collections
-        }*/
+        }
+         */
         
         let addButton = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector(CollectionTableViewController.addCollection))
         navigationItem.rightBarButtonItem = addButton

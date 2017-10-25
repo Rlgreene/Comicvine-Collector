@@ -54,7 +54,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZZ-xk-hCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039.2" y="22.938530734632685"/>
+            <point key="canvasLocation" x="306" y="50"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="MmQ-cQ-uGB">
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1G-eM-OJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1773.75" y="26.408450704225352"/>
+            <point key="canvasLocation" x="1039" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mSR-A4-eEo">
@@ -185,12 +185,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Ft8-UM-gg3" kind="relationship" relationship="rootViewController" id="n9i-5K-0sf"/>
+                        <segue destination="3YN-2U-WhJ" kind="relationship" relationship="rootViewController" id="aeR-Ys-ahz"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L4k-s3-OjZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="23"/>
+            <point key="canvasLocation" x="-469" y="835"/>
         </scene>
         <!--Collection Table View Controller-->
         <scene sceneID="1xn-zv-FnW">
@@ -200,6 +200,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2mZ-SN-EWb">
+                            <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Search New Comics" width="345" id="QkO-7S-3Ol">
+                                    <connections>
+                                        <segue destination="Ft8-UM-gg3" kind="show" id="L6J-UP-lox"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="collections" editingAccessoryType="checkmark" id="8y7-MP-iob">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -219,6 +230,7 @@
                             <outlet property="delegate" destination="3YN-2U-WhJ" id="7Yy-vw-tPy"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="fO6-I3-fF6"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gdc-HM-3EM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -233,7 +245,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="GUw-8M-KbA">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="issue" id="GUw-8M-KbA">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GUw-8M-KbA" id="owQ-9F-44t">
@@ -250,7 +262,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wb-qh-9vg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1036" y="831"/>
+            <point key="canvasLocation" x="1039" y="835"/>
         </scene>
         <!--Collection Naming View Controller-->
         <scene sceneID="WdF-Da-Vfp">
@@ -280,4 +292,7 @@
             <point key="canvasLocation" x="305.625" y="1557.0422535211267"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="2iJ-eR-reU"/>
+    </inferredMetricsTieBreakers>
 </document>

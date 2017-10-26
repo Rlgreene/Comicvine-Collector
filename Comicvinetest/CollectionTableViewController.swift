@@ -13,6 +13,7 @@ class CollectionTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if let c = appDelegate.collections{
             self.collections = c
@@ -37,7 +38,7 @@ class CollectionTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+
         return 1
     }
 
@@ -118,6 +119,7 @@ class CollectionTableViewController: UITableViewController {
         destination.collection = collection
         }
     }
+    
     
 
 }

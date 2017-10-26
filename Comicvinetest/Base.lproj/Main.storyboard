@@ -115,7 +115,8 @@
                                     <color key="titleShadowColor" red="0.052620384896188699" green="0.095376769653028437" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="3YN-2U-WhJ" kind="show" id="2iJ-eR-reU"/>
+                                    <action selector="addToButton:" destination="8Wr-3W-JN2" eventType="touchUpInside" id="vgF-CK-SuN"/>
+                                    <segue destination="5zP-gi-JMY" kind="show" id="BQb-64-IwP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -140,7 +141,6 @@
                             <constraint firstItem="3zb-YP-35x" firstAttribute="top" secondItem="q6n-ZC-aSY" secondAttribute="bottom" constant="8" id="TSi-D6-5BC"/>
                             <constraint firstItem="0bL-xt-6jZ" firstAttribute="top" secondItem="q6n-ZC-aSY" secondAttribute="bottom" constant="8" id="Uvh-Jz-fOT"/>
                             <constraint firstItem="3zb-YP-35x" firstAttribute="top" secondItem="q6n-ZC-aSY" secondAttribute="bottom" constant="8" symbolic="YES" id="ZCb-3W-mrR"/>
-                            <constraint firstItem="a0o-hB-c6H" firstAttribute="leading" secondItem="OgY-cX-O9S" secondAttribute="leading" constant="50" id="ZXV-rZ-rol"/>
                             <constraint firstItem="a0o-hB-c6H" firstAttribute="leading" secondItem="hps-z3-7aq" secondAttribute="leading" constant="50" id="bdD-g1-0sM"/>
                             <constraint firstItem="hps-z3-7aq" firstAttribute="bottom" secondItem="0bL-xt-6jZ" secondAttribute="bottom" constant="501" id="bpM-7n-TXS"/>
                             <constraint firstItem="a0o-hB-c6H" firstAttribute="top" secondItem="3zb-YP-35x" secondAttribute="bottom" constant="44.5" id="bxK-yZ-P8I"/>
@@ -200,17 +200,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="2mZ-SN-EWb">
-                            <rect key="frame" x="0.0" y="72" width="320" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                            <items>
-                                <barButtonItem title="Search New Comics" width="345" id="QkO-7S-3Ol">
-                                    <connections>
-                                        <segue destination="Ft8-UM-gg3" kind="show" id="L6J-UP-lox"/>
-                                    </connections>
-                                </barButtonItem>
-                            </items>
-                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailDisclosureButton" indentationWidth="10" reuseIdentifier="collections" editingAccessoryType="checkmark" id="8y7-MP-iob">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -239,11 +228,29 @@
         <!--Issues Table View Controller-->
         <scene sceneID="ySu-dw-Bct">
             <objects>
-                <tableViewController id="5zP-gi-JMY" customClass="IssuesTableViewController" customModule="Comicvinetest" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IssuesTableViewController" id="5zP-gi-JMY" customClass="IssuesTableViewController" customModule="Comicvinetest" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="IJl-HD-kwZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <toolbar key="tableFooterView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="xFA-It-arG">
+                            <rect key="frame" x="0.0" y="72" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <items>
+                                <barButtonItem title="Back to Collections" width="242" id="VFY-Gz-Lkg">
+                                    <connections>
+                                        <action selector="backtoCollectionsButton:" destination="5zP-gi-JMY" id="xSE-89-wtN"/>
+                                        <segue destination="3YN-2U-WhJ" kind="show" id="zBu-RU-HU9"/>
+                                    </connections>
+                                </barButtonItem>
+                                <barButtonItem systemItem="search" id="pCZ-G5-Dyx">
+                                    <color key="tintColor" red="0.31659984159999999" green="0.19086675049999999" blue="0.77074562820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <connections>
+                                        <segue destination="Ft8-UM-gg3" kind="show" id="xCw-3E-ecP"/>
+                                    </connections>
+                                </barButtonItem>
+                            </items>
+                        </toolbar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="issue" id="GUw-8M-KbA">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
@@ -293,6 +300,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="2iJ-eR-reU"/>
+        <segue reference="zuE-p4-cGe"/>
+        <segue reference="zBu-RU-HU9"/>
     </inferredMetricsTieBreakers>
 </document>

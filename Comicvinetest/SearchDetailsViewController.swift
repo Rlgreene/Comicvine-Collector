@@ -44,7 +44,10 @@ class SearchDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func addToButton(_ sender: Any) {
+        
+    }
+    
     
     // MARK: - Navigation
 

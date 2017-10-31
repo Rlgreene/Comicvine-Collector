@@ -54,7 +54,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZZ-xk-hCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="306" y="50"/>
+            <point key="canvasLocation" x="1039" y="50"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="MmQ-cQ-uGB">
@@ -115,8 +115,7 @@
                                     <color key="titleShadowColor" red="0.052620384896188699" green="0.095376769653028437" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="addToButton:" destination="8Wr-3W-JN2" eventType="touchUpInside" id="vgF-CK-SuN"/>
-                                    <segue destination="5zP-gi-JMY" kind="show" id="BQb-64-IwP"/>
+                                    <segue destination="5zP-gi-JMY" kind="show" identifier="addIssuesSegue" id="BQb-64-IwP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,6 +163,7 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="addButton" destination="LkG-Na-hZG" id="oH9-T6-YRs"/>
                         <outlet property="coverView" destination="a0o-hB-c6H" id="eII-06-ncB"/>
                         <outlet property="issueNumberLabel" destination="3zb-YP-35x" id="co9-69-VFo"/>
                         <outlet property="nameLabel" destination="q6n-ZC-aSY" id="JFF-jh-m30"/>
@@ -171,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1G-eM-OJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="50"/>
+            <point key="canvasLocation" x="1875" y="50"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mSR-A4-eEo">
@@ -237,7 +237,7 @@
                             <rect key="frame" x="0.0" y="72" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
-                                <barButtonItem title="Back to Collections" width="242" id="VFY-Gz-Lkg">
+                                <barButtonItem title="Back to Collections" width="222" id="VFY-Gz-Lkg">
                                     <connections>
                                         <action selector="backtoCollectionsButton:" destination="5zP-gi-JMY" id="xSE-89-wtN"/>
                                         <segue destination="3YN-2U-WhJ" kind="show" id="zBu-RU-HU9"/>
@@ -246,7 +246,7 @@
                                 <barButtonItem systemItem="search" id="pCZ-G5-Dyx">
                                     <color key="tintColor" red="0.31659984159999999" green="0.19086675049999999" blue="0.77074562820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <connections>
-                                        <segue destination="Ft8-UM-gg3" kind="show" id="xCw-3E-ecP"/>
+                                        <segue destination="Ft8-UM-gg3" kind="show" identifier="searchIssueSegue" id="xCw-3E-ecP"/>
                                     </connections>
                                 </barButtonItem>
                             </items>
@@ -259,11 +259,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8Wr-3W-JN2" kind="show" identifier="issueDetail" id="JQf-qb-3sY"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="5zP-gi-JMY" id="tnn-7B-vdb"/>
-                            <outlet property="delegate" destination="5zP-gi-JMY" id="WGA-36-9Kd"/>
+                            <outlet property="dataSource" destination="5zP-gi-JMY" id="ReP-5O-H80"/>
+                            <outlet property="delegate" destination="5zP-gi-JMY" id="sjf-7W-1Pd"/>
                         </connections>
                     </tableView>
                 </tableViewController>
@@ -302,5 +305,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="zuE-p4-cGe"/>
         <segue reference="zBu-RU-HU9"/>
+        <segue reference="JQf-qb-3sY"/>
     </inferredMetricsTieBreakers>
 </document>

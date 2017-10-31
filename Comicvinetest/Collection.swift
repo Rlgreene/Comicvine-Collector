@@ -10,14 +10,14 @@ import UIKit
 
 class Collection: NSObject {
     var name: String?
-    var issues: [(String, String)]
+    var issues: [Comicvine]
     
     init(name: String?){
         self.name = name
-        self.issues = [(String, String)]()
+        self.issues = [Comicvine]()
     }
-    func addIssue(issueNumber: String, name: String) -> Void {
-        self.issues += [(issueNumber, name)]
+    func addIssue(issue: Comicvine) -> Void {
+        self.issues += [issue]
     
     }
 }

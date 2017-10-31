@@ -13,10 +13,12 @@ class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var issueNumberLabel: UILabel!
     @IBOutlet weak var coverView: UIImageView!
     var comicvine: Comicvine?
-    
+    var collection: Collection?
+    var showCollectionsButton: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addButton.isHidden = !showCollectionsButton
         
         if let comicvine = self.comicvine {
             if let name = comicvine.name {
@@ -44,17 +46,23 @@ class SearchDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func addToButton(_ sender: Any) {
-        
-    }
+
+     
+    @IBOutlet weak var addButton: UIButton!
     
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-   //override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if (segue.identifier == "addIssuesSegue") {
+        collection?.addIssue(issue: comicvine!)
+        let destination = segue.destination as! IssuesTableViewController
+        destination.collection = collection
         
-    //}
+    }
+
+}
     
 
 }

@@ -118,6 +118,12 @@ class CollectionTableViewController: UITableViewController {
         let destination = segue.destination as! CollectionNamingViewController
         destination.collection = collection
         }
+        if (segue.identifier == "issuesSegue"){
+            let destination = segue.destination as! IssuesTableViewController
+            let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)!
+            let collection = self.collections[indexPath.row]
+            destination.collection = collection
+        }
     }
     
     

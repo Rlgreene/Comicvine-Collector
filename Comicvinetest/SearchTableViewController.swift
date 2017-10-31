@@ -12,13 +12,14 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var collection: Collection?
     var comicvineResults: [Comicvine]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
         
-        
+
     }
     
     func searchComicsBy(_ searchString: String){
@@ -140,8 +141,10 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
         let comicvine = self.comicvineResults![(indexPath?.row)!]
         let destination = segue.destination as! SearchDetailsViewController
-        destination.comicvine = comicvine        
+        destination.comicvine = comicvine
+        destination.collection = collection
     }
+    
     
 
 }

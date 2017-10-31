@@ -10,6 +10,8 @@ import UIKit
 
 class IssuesTableViewController: UITableViewController {
     
+    var collection: Collection?
+    
     var issues: [Comicvine] = []
     
     override func viewDidLoad() {
@@ -36,15 +38,19 @@ class IssuesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-        return self.issues.count
+    //this if let - else statement makes it possible to start a new collection with 0 cells
+        if let c = self.collection{
+            return c.issues.count
+        }else {
+            return 0
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath)
+        let comicvine = (self.collection?.issues[indexPath.row])!
+        cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         
-
-        // Configure the cell...
 
         return cell
     }
@@ -85,14 +91,23 @@ class IssuesTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if (segue.identifier == "searchIssueSegue"){
+            let destination = segue.destination as! SearchTableViewController
+            destination.collection = collection
+        }
+        if (segue.identifier == "issueDetail"){
+            let destination = segue.destination as! SearchDetailsViewController
+            let indexPath = tableView.indexPathForSelectedRow
+            let comicvine = self.collection?.issues[(indexPath?.row)!]
+            destination.showCollectionsButton = false
+            destination.comicvine = comicvine
+        }
     }
-    */
+    
 
 }

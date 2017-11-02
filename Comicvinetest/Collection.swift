@@ -21,7 +21,6 @@ class Collection: NSObject, NSCoding {
     
     }
     //NSCoding
-    
     public convenience required init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let issues = aDecoder.decodeObject(forKey: "issues") as! [Comicvine]
@@ -30,7 +29,6 @@ class Collection: NSObject, NSCoding {
             for issue in issues{
                 self.addIssue(issue: issue)
             }
-        
     }
     
     func encode(with aCoder: NSCoder) {

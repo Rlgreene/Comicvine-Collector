@@ -18,14 +18,16 @@ class Comicvine: NSObject, NSCoding {
         self.issueNumber = issueNumber
         self.name = name
         
-        
     }
+    
+    //This class also needs NSCoding as it is a class featured in the 'Collection' class
     public convenience required init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let issueNumber = aDecoder.decodeObject(forKey: "issueNumber") as! String?
         let cover = aDecoder.decodeObject(forKey: "cover") as! Data
         let coverUrl = aDecoder.decodeObject(forKey: "coverUrl") as! String
         
+    //initializer being used when saving/displaying cell textLabels in 'IssuesTableViewController'
         self.init(issueNumber: issueNumber, name: name)
         self.cover = cover
         self.coverUrl = coverUrl

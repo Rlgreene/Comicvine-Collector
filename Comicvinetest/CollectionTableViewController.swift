@@ -14,7 +14,7 @@ class CollectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //Displays data that was saved from the previous session via the "saveCollections" UIButton action
+        //Displays data that was saved from the previous session via the "saveCollections" UIButton action from the collections.dat folder
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsPath)
         let collectionsPath = documentsPath + "/collections.dat"
@@ -24,13 +24,6 @@ class CollectionTableViewController: UITableViewController {
             self.collections = collections
         }
         
-        /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        if let c = appDelegate.collections{
-            self.collections = c
-        }else {
-            appDelegate.collections = self.collections
-        }
-         */
         
         let addButton = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector(CollectionTableViewController.addCollection))
         navigationItem.rightBarButtonItem = addButton

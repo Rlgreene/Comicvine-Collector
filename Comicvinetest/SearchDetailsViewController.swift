@@ -59,10 +59,7 @@ class SearchDetailsViewController: UIViewController {
         collection?.addIssue(issue: comicvine!)
         let destination = segue.destination as! IssuesTableViewController
         destination.collection = collection
-        
     }
-
-}
+   }
     
-
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Comicvine: NSObject {
+class Comicvine: NSObject, NSCoding {
     var issueNumber: String?
     var name: String?
     var cover: Data?
@@ -20,5 +20,22 @@ class Comicvine: NSObject {
         
         
     }
+    public convenience required init?(coder aDecoder: NSCoder){
+        let name = aDecoder.decodeObject(forKey: "name") as! String
+        let issueNumber = aDecoder.decodeObject(forKey: "issueNumber") as! String?
+        let cover = aDecoder.decodeObject(forKey: "cover") as! Data
+        let coverUrl = aDecoder.decodeObject(forKey: "coverUrl") as! String
+        
+        self.init(issueNumber: issueNumber, name: name)
+        self.cover = cover
+        self.coverUrl = coverUrl
+        
+    }
     
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey: "name")
+        aCoder.encode(issueNumber, forKey: "issueNumber")
+        aCoder.encode(cover, forKey: "cover")
+        aCoder.encode(coverUrl, forKey: "coverUrl")
+    }
 }

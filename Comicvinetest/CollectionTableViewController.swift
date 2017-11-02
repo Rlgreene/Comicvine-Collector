@@ -14,6 +14,16 @@ class CollectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Displays data that was saved from the previous session via the "saveCollections" UIButton action
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsPath)
+        let collectionsPath = documentsPath + "/collections.dat"
+        print(collectionsPath)
+        
+        if let collections = NSKeyedUnarchiver.unarchiveObject(withFile: collectionsPath) as? [Collection] {
+            self.collections = collections
+        }
+        
         /*let appDelegate = UIApplication.shared.delegate as! AppDelegate
         if let c = appDelegate.collections{
             self.collections = c
@@ -74,12 +84,19 @@ class CollectionTableViewController: UITableViewController {
     }
     
     @objc func addCollection () {
-        let newCollection = Collection(name: "New Collection")
+        let newCollection = Collection(name: "new Collection")
         self.collections.append(newCollection)
         let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
         self.tableView.insertRows(at: [newIndexPath], with: .automatic)
     }
-
+// the Save button that takes all new/existing data and stores it in the documents folder in the device's hardrive
+    @IBAction func saveCollections(_ sender: Any) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsPath)
+        let collectionsPath = documentsPath + "/collections.dat"
+        print(collectionsPath)
+        NSKeyedArchiver.archiveRootObject(collections, toFile: collectionsPath)
+    }
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

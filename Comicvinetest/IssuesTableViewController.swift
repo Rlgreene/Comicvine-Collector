@@ -40,7 +40,7 @@ class IssuesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     //this if let - else statement makes it possible to start a new collection with 0 cells
         if let c = self.collection{
-            return c.issues.count
+            return c.issues!.count
         }else {
             return 0
         }
@@ -48,9 +48,12 @@ class IssuesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath)
-        let comicvine = (self.collection?.issues[indexPath.row])!
-        cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
-        
+        let comicvine = (self.collection?.issues![indexPath.row])!
+        if let n = comicvine.issueNumber {
+        cell.textLabel?.text = comicvine.name! + " " + n
+        } else {
+            cell.textLabel?.text = comicvine.name!
+        }
 
         return cell
     }
@@ -103,7 +106,7 @@ class IssuesTableViewController: UITableViewController {
         if (segue.identifier == "issueDetail"){
             let destination = segue.destination as! SearchDetailsViewController
             let indexPath = tableView.indexPathForSelectedRow
-            let comicvine = self.collection?.issues[(indexPath?.row)!]
+            let comicvine = self.collection?.issues![(indexPath?.row)!]
             destination.showCollectionsButton = false
             destination.comicvine = comicvine
         }

@@ -10,9 +10,13 @@ import UIKit
 
 class CollectionTableViewController: UITableViewController {
     var collections: [Collection] = []
-
+    var initialLoad : Bool = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "My Collections"
+        
+        if !initialLoad{
+          print("initial load")
         
         //Displays data that was saved from the previous session via the "saveCollections" UIButton action from the collections.dat folder
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -23,11 +27,14 @@ class CollectionTableViewController: UITableViewController {
         if let collections = NSKeyedUnarchiver.unarchiveObject(withFile: collectionsPath) as? [Collection] {
             self.collections = collections
         }
-        
+            self.initialLoad = true
+        }
+        self.tableView.reloadData()
+        print("view did load")
         
         let addButton = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector(CollectionTableViewController.addCollection))
         navigationItem.rightBarButtonItem = addButton
-        
+         
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          //self.navigationItem.rightBarButtonItem = self.editButtonItem
@@ -66,7 +73,9 @@ class CollectionTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        print("view will appear")
+        self.tableView.reloadData()
+        
     }
 
     
@@ -77,11 +86,13 @@ class CollectionTableViewController: UITableViewController {
     }
     
     @objc func addCollection () {
-        let newCollection = Collection(name: "new Collection")
+        let newCollection = Collection(name: "New Collection")
         self.collections.append(newCollection)
-        let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
-        self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+        //let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
+        //self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+        self.tableView.reloadData()
     }
+    
 // the Save button that takes all new/existing data and stores it in the documents folder in the device's hardrive
     @IBAction func saveCollections(_ sender: Any) {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -135,7 +146,6 @@ class CollectionTableViewController: UITableViewController {
             destination.collection = collection
         }
     }
-    
     
 
 }

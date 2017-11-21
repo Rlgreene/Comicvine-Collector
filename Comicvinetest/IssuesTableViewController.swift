@@ -12,10 +12,15 @@ class IssuesTableViewController: UITableViewController {
     
     var collection: Collection?
     
-    var issues: [Comicvine] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = collection?.name
+        
+        let moveButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(IssuesTableViewController.toggleEdit))
+            navigationItem.rightBarButtonItem = moveButton
+        
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -38,7 +43,7 @@ class IssuesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //this if let - else statement makes it possible to start a new collection with 0 cells
+    //this if let - else statement makes it possible to display a collection with 0 cells
         if let c = self.collection{
             return c.issues!.count
         }else {
@@ -47,7 +52,7 @@ class IssuesTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "issue", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "issues", for: indexPath)
         let comicvine = (self.collection?.issues![indexPath.row])!
         if let n = comicvine.issueNumber {
         cell.textLabel?.text = comicvine.name! + " " + n
@@ -57,43 +62,78 @@ class IssuesTableViewController: UITableViewController {
 
         return cell
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     
-
-    /*
+    //the Save bar button
+    /*@IBAction func saveButton(_ sender: Any) {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsPath)
+        let savePath = documentsPath + "/collections.dat"
+        print(savePath)
+        NSKeyedArchiver.archiveRootObject(issues, toFile: savePath)
+    }*/
+    
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
+    
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            if let c = self.collection {
+                c.issues?.remove(at: indexPath.row)
+                // Delete the row from the data source
+                tableView.deleteRows(at: [indexPath], with: .fade)
+                tableView.reloadData()
+            }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
+    @objc func toggleEdit() {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+        let issuesMoving = collection?.issues?.remove(at: fromIndexPath.row)
+        collection?.issues?.insert(issuesMoving!, at: to.row)
     }
-    */
-
+    
+    //State Resoration, Keep commented out unless needed
+    //----------------------------------------------
     /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    override func encodeRestorableState(with coder: NSCoder) {
+        if let collection = collection {
+            coder.encode(collection, forKey: "collection")
+        }
+        super.encodeRestorableState(with: coder)
+        print("encodeRestorableState")
     }
-    */
-
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        collection = coder.decodeObject(forKey: "collection") as? Collection
+        
+        super.decodeRestorableState(with: coder)
+        tableView.reloadData()
+        print("decodeRestorableState")
+    }
+    
+     override func applicationFinishedRestoringState() {
+        guard let collection = collection else { return }
+        self.collection = collection
+        tableView.reloadData()
+    }*/
+//----------------------------------------------
     
     // MARK: - Navigation
 

@@ -18,7 +18,7 @@ class Collection: NSObject, NSCoding {
     }
     func addIssue(issue: Comicvine) -> Void {
         self.issues?.append(issue)
-    
+        print("addedIssue")
     }
     //NSCoding
     public convenience required init?(coder aDecoder: NSCoder){

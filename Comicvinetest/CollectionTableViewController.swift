@@ -75,6 +75,8 @@ class CollectionTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         print("view will appear")
         self.tableView.reloadData()
+        autoSave()
+        print("autoSave will appear")
         
     }
 
@@ -91,9 +93,11 @@ class CollectionTableViewController: UITableViewController {
         //let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
         //self.tableView.insertRows(at: [newIndexPath], with: .automatic)
         self.tableView.reloadData()
+        autoSave()
+        print("autoSaved add")
     }
     
-// the Save button that takes all new/existing data and stores it in the documents folder in the device's hardrive
+//the Save button that takes all new/existing data and stores it in the documents folder in the device's hardrive (for MainOld storyboard)
     @IBAction func saveCollections(_ sender: Any) {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsPath)
@@ -107,6 +111,8 @@ class CollectionTableViewController: UITableViewController {
         if editingStyle == .delete {
             self.collections.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            autoSave()
+            print("autoSaved delete")
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -127,6 +133,15 @@ class CollectionTableViewController: UITableViewController {
         return true
     }
     */
+    
+    //Call this function after any method that edits so that changes are saved
+    func autoSave() {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsPath)
+        let savePath = documentsPath + "/collections.dat"
+        print(savePath)
+        NSKeyedArchiver.archiveRootObject(collections, toFile: savePath)
+    }
 
    
     // MARK: - Navigation

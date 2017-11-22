@@ -18,6 +18,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
+        navigationItem.title = "Search for Comics"
         
 
     }
@@ -42,8 +43,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             if let results = responseObject["results"] as? [[String: AnyObject]] {
                             self.comicvineResults = [Comicvine]()
                             for result in results {
-                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"])
-                                let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String)
+                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"], result["cover_date"]!)
+                                let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String)
                             //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
                                     c.coverUrl = imageURLString
@@ -88,9 +89,12 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "comics", for: indexPath)
         
-        let c: Comicvine = (comicvineResults? [indexPath.row])!
-        cell.textLabel?.text = c.name! + " " + c.issueNumber!
-        
+        let comicvine = (comicvineResults? [indexPath.row])!
+        if let d = comicvine.date {
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + " " + d
+        } else {
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
+        }
 
         // Configure the cell...
 

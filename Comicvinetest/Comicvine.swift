@@ -13,11 +13,13 @@ class Comicvine: NSObject, NSCoding {
     var name: String?
     var cover: Data?
     var coverUrl: String?
+    var date: String?
     
-    init (issueNumber: String?, name: String?){
+    
+    init (issueNumber: String?, name: String?, date: String?){
         self.issueNumber = issueNumber
         self.name = name
-        
+        self.date = date
     }
     
     //This class also needs NSCoding as it is a class featured in the 'Collection' class
@@ -26,9 +28,10 @@ class Comicvine: NSObject, NSCoding {
         let issueNumber = aDecoder.decodeObject(forKey: "issueNumber") as! String?
         let cover = aDecoder.decodeObject(forKey: "cover") as! Data
         let coverUrl = aDecoder.decodeObject(forKey: "coverUrl") as! String
+        let date = aDecoder.decodeObject(forKey: "date") as! String?
         
     //initializer being used when saving/displaying cell textLabels in 'IssuesTableViewController'
-        self.init(issueNumber: issueNumber, name: name)
+        self.init(issueNumber: issueNumber, name: name, date: date)
         self.cover = cover
         self.coverUrl = coverUrl
         
@@ -39,5 +42,6 @@ class Comicvine: NSObject, NSCoding {
         aCoder.encode(issueNumber, forKey: "issueNumber")
         aCoder.encode(cover, forKey: "cover")
         aCoder.encode(coverUrl, forKey: "coverUrl")
+        aCoder.encode(date, forKey: "date")
     }
 }

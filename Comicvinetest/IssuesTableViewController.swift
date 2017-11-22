@@ -27,7 +27,7 @@ class IssuesTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,7 +67,7 @@ class IssuesTableViewController: UITableViewController {
         tableView.reloadData()
     }
     
-    //the Save bar button
+    //the Save bar button (for MainOld storyboard)
     /*@IBAction func saveButton(_ sender: Any) {
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsPath)
@@ -92,14 +92,26 @@ class IssuesTableViewController: UITableViewController {
                 // Delete the row from the data source
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
+                autoSave()
+                print("autoSaved issues")
             }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
     
-    @objc func toggleEdit() {
+    @objc func toggleEdit(isEditing: Bool, animated: Bool) {
         tableView.setEditing(!tableView.isEditing, animated: true)
+        autoSave()
+        print("autoSaved toggle")
+    }
+    
+    func autoSave() {
+        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print(documentsPath)
+        let savePath = documentsPath + "/collections.dat"
+        print(savePath)
+        NSKeyedArchiver.archiveRootObject(collection!.issues!, toFile: savePath)
     }
 
     
@@ -107,6 +119,8 @@ class IssuesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let issuesMoving = collection?.issues?.remove(at: fromIndexPath.row)
         collection?.issues?.insert(issuesMoving!, at: to.row)
+        autoSave()
+        print("autoSaved rearranging")
     }
     
     //State Resoration, Keep commented out unless needed
@@ -133,7 +147,7 @@ class IssuesTableViewController: UITableViewController {
         self.collection = collection
         tableView.reloadData()
     }*/
-//----------------------------------------------
+    //----------------------------------------------
     
     // MARK: - Navigation
 

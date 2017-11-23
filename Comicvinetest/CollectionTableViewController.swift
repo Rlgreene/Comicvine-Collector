@@ -11,6 +11,8 @@ import UIKit
 class CollectionTableViewController: UITableViewController {
     var collections: [Collection] = []
     var initialLoad : Bool = false
+    var newComics: [Comicvine] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "My Collections"
@@ -18,7 +20,7 @@ class CollectionTableViewController: UITableViewController {
         if !initialLoad{
           print("initial load")
         
-        //Displays data that was saved from the previous session via the "saveCollections" UIButton action from the collections.dat folder
+        //Displays data that was saved from the previous session from the collections.dat folder when the "saveCollections" UIButton or the autoSave action is called
         let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
         print(documentsPath)
         let collectionsPath = documentsPath + "/collections.dat"
@@ -90,8 +92,8 @@ class CollectionTableViewController: UITableViewController {
     @objc func addCollection () {
         let newCollection = Collection(name: "New Collection")
         self.collections.append(newCollection)
-        //let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
-        //self.tableView.insertRows(at: [newIndexPath], with: .automatic)
+        let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
+        self.tableView.insertRows(at: [newIndexPath], with: .automatic)
         self.tableView.reloadData()
         autoSave()
         print("autoSaved add")
@@ -118,6 +120,13 @@ class CollectionTableViewController: UITableViewController {
         }    
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let c = collections[indexPath.row]
+        for comicvine in newComics {
+            c.addIssue(issue: comicvine)
+        }
+        autoSave()
+    }
 
     /*
     // Override to support rearranging the table view.

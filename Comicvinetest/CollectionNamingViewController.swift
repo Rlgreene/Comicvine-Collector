@@ -37,6 +37,7 @@ class CollectionNamingViewController: UIViewController, UITextFieldDelegate {
             self.collection?.name = textField.text
         } 
     }
+    
 
     /*
     // MARK: - Navigation

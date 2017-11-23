@@ -11,7 +11,7 @@ import UIKit
 class IssuesTableViewController: UITableViewController {
     
     var collection: Collection?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,10 +54,10 @@ class IssuesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issues", for: indexPath)
         let comicvine = (self.collection?.issues![indexPath.row])!
-        if let n = comicvine.issueNumber {
-        cell.textLabel?.text = comicvine.name! + " " + n
+        if let d = comicvine.date {
+        cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + " " + d
         } else {
-            cell.textLabel?.text = comicvine.name!
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }
 
         return cell
@@ -111,7 +111,7 @@ class IssuesTableViewController: UITableViewController {
         print(documentsPath)
         let savePath = documentsPath + "/collections.dat"
         print(savePath)
-        NSKeyedArchiver.archiveRootObject(collection!.issues!, toFile: savePath)
+        NSKeyedArchiver.archiveRootObject(collection?.issues, toFile: savePath)
     }
 
     

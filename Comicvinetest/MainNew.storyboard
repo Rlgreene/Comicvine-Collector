@@ -53,6 +53,15 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ibB-vc-0cu" id="iJJ-le-ZGH">
                                     <rect key="frame" x="0.0" y="0.0" width="252" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fm5-Eo-VsA">
+                                            <rect key="frame" x="25" y="11" width="42" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="Hl8-VS-0kn" kind="show" identifier="issuesSegue" id="QD4-WB-2u8"/>
@@ -129,11 +138,6 @@
                                     <constraint firstAttribute="height" constant="320" id="2Km-En-FD0"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1h0-MA-FJG">
-                                <rect key="frame" x="50" y="466" width="220" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Add To Collection"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -151,7 +155,6 @@
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="addButton" destination="1h0-MA-FJG" id="bFM-pZ-Emh"/>
                         <outlet property="coverView" destination="aO2-Cg-NjO" id="fcu-Q4-oRN"/>
                         <outlet property="issueNumberLabel" destination="2wR-PT-Zhu" id="qz6-VX-ybO"/>
                         <outlet property="nameLabel" destination="6OY-06-I1h" id="2PP-Ex-a5Q"/>
@@ -185,7 +188,7 @@
         <scene sceneID="nSk-Z8-NOF">
             <objects>
                 <tableViewController id="Psx-gA-X2P" customClass="SearchTableViewController" customModule="Comicvinetest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ywS-oq-STm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ywS-oq-STm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -205,9 +208,6 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="6Me-MV-q04" kind="show" identifier="searchDetailsSegue" id="Fzn-TK-SaT"/>
-                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -215,7 +215,13 @@
                             <outlet property="delegate" destination="Psx-gA-X2P" id="NXZ-cP-Zd1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BVb-K5-n8D"/>
+                    <navigationItem key="navigationItem" id="BVb-K5-n8D">
+                        <barButtonItem key="leftBarButtonItem" title="Add to" id="7rL-vv-oZi">
+                            <connections>
+                                <segue destination="6cR-tM-yVo" kind="show" id="yUN-le-YNI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="searchBar" destination="Cyb-0v-PtL" id="3wI-MF-fMU"/>
@@ -280,6 +286,6 @@
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Fzn-TK-SaT"/>
+        <segue reference="JFN-EX-R5V"/>
     </inferredMetricsTieBreakers>
 </document>

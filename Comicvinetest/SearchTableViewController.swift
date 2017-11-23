@@ -14,12 +14,15 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     var collection: Collection?
     var comicvineResults: [Comicvine]?
+    var selectedComics: [Comicvine]?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
         navigationItem.title = "Search for Comics"
         
+        selectedComics = []
 
     }
     
@@ -109,7 +112,20 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         return false
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .checkmark
+        let comicvine = comicvineResults![indexPath.row]
+        selectedComics?.append(comicvine)
+    }
 
+    override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.accessoryType = .none
+        let comicvine = comicvineResults![indexPath.row]
+        let s = selectedComics?.index(of: comicvine)
+        selectedComics?.remove(at: s!)
+    }
     /*
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -141,14 +157,18 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
         let comicvine = self.comicvineResults![(indexPath?.row)!]
         let destination = segue.destination as! SearchDetailsViewController
         destination.comicvine = comicvine
         destination.collection = collection
-    }
+    }*/
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! CollectionTableViewController
+        destination.newComics = selectedComics!
+    }
     
 
 }

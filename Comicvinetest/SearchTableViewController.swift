@@ -111,7 +111,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         // Return false if you do not want the specified item to be editable.
         return false
     }
-    
+    //these two enable selection and deselection of cells displaying a checkmark, used for adding comics to collections
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark
@@ -121,7 +121,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
-        cell?.accessoryType = .none
+        cell?.accessoryType = .detailDisclosureButton
         let comicvine = comicvineResults![indexPath.row]
         let s = selectedComics?.index(of: comicvine)
         selectedComics?.remove(at: s!)
@@ -157,17 +157,18 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "searchDisclosure") {
         let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
         let comicvine = self.comicvineResults![(indexPath?.row)!]
         let destination = segue.destination as! SearchDetailsViewController
         destination.comicvine = comicvine
         destination.collection = collection
-    }*/
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! CollectionTableViewController
-        destination.newComics = selectedComics!
+    }
+        if (segue.identifier == "addComics") {
+            let destination = segue.destination as! CollectionTableViewController
+            destination.newComics = selectedComics!
+        }
     }
     
 

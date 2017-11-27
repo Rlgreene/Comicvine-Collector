@@ -27,7 +27,7 @@ class IssuesTableViewController: UITableViewController {
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        //self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -93,7 +93,7 @@ class IssuesTableViewController: UITableViewController {
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
                 autoSave()
-                print("autoSaved issues")
+                print("autoSaved delete")
             }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

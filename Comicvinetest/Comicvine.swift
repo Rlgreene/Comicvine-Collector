@@ -26,7 +26,7 @@ class Comicvine: NSObject, NSCoding {
     public convenience required init?(coder aDecoder: NSCoder){
         let name = aDecoder.decodeObject(forKey: "name") as! String
         let issueNumber = aDecoder.decodeObject(forKey: "issueNumber") as! String?
-        let cover = aDecoder.decodeObject(forKey: "cover") as! Data
+        let cover = aDecoder.decodeObject(forKey: "cover") as! Data?
         let coverUrl = aDecoder.decodeObject(forKey: "coverUrl") as! String
         let date = aDecoder.decodeObject(forKey: "date") as! String?
         

@@ -18,7 +18,6 @@ class SearchDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addButton.isHidden = !showCollectionsButton
         
         if let comicvine = self.comicvine {
             if let name = comicvine.name {

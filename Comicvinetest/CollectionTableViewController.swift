@@ -9,6 +9,7 @@
 import UIKit
 
 class CollectionTableViewController: UITableViewController {
+    
     var collections: [Collection] = []
     var initialLoad : Bool = false
     var newComics: [Comicvine] = []
@@ -125,7 +126,6 @@ class CollectionTableViewController: UITableViewController {
         for comicvine in newComics {
             c.addIssue(issue: comicvine)
         }
-        autoSave()
     }
 
     /*

@@ -238,7 +238,7 @@
         <scene sceneID="Ogl-Ks-lDg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1r5-oP-N8U" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Collections" image="first" id="Sdn-Rb-Ivg"/>
+                    <tabBarItem key="tabBarItem" title="My Collections" image="glyphicons-72-book" id="Sdn-Rb-Ivg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ifq-dh-K5y">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -262,7 +262,7 @@
         <scene sceneID="M3D-4I-oya">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uhL-Yt-bRK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search for Comics" image="second" id="JWO-E0-fC2"/>
+                    <tabBarItem key="tabBarItem" title="Search for Comics" image="glyphicons-28-search" id="JWO-E0-fC2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jbb-GQ-9aH">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -285,11 +285,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="glyphicons-28-search" width="24" height="24"/>
+        <image name="glyphicons-72-book" width="22" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4ud-Fv-eNP"/>
-        <segue reference="JFN-EX-R5V"/>
+        <segue reference="yUN-le-YNI"/>
     </inferredMetricsTieBreakers>
 </document>

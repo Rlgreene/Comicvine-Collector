@@ -11,6 +11,7 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
+    //@IBOutlet weak var loadingLabel: UILabel!
     
     var collection: Collection?
     var comicvineResults: [Comicvine]?
@@ -21,6 +22,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
         navigationItem.title = "Search for Comics"
+        //self.loadingLabel.text = ""
         
         selectedComics = []
 
@@ -87,8 +89,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         return (comicvineResults?.count)!
     }
-
     
+    //Controls Cell transparency
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.55)
+    }
+
+    //Cell Configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "comics", for: indexPath)
         
@@ -99,11 +106,19 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }
 
-        // Configure the cell...
-
         return cell
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //tableView background picture
+        let backgroundImage = UIImage(named: "wood_shelves.jpg")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        imageView.contentMode = .scaleAspectFill
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
 
     
     // Override to support conditional editing of the table view.

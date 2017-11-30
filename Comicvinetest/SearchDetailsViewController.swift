@@ -12,12 +12,18 @@ class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var issueNumberLabel: UILabel!
     @IBOutlet weak var coverView: UIImageView!
+    @IBOutlet weak var dateLabel: UILabel!
     var comicvine: Comicvine?
     var collection: Collection?
     var showCollectionsButton: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let backgroundImage = UIImage(named: "wood_shelves.jpg")
+        let backgroundImageView = UIImageView(frame: self.view.frame)
+        backgroundImageView.image = backgroundImage
+        self.view.insertSubview(backgroundImageView, at: 0)
         
         if let comicvine = self.comicvine {
             if let name = comicvine.name {
@@ -26,6 +32,12 @@ class SearchDetailsViewController: UIViewController {
             
             if let issueNumber = comicvine.issueNumber {
                 self.issueNumberLabel.text = issueNumber
+            }
+            
+            if let date = comicvine.date {
+                self.dateLabel.text = "Print released on \(date)"
+            } else {
+                self.dateLabel.text = "Release date unavailable"
             }
             
             if let coverUrl = comicvine.coverUrl {
@@ -45,8 +57,8 @@ class SearchDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-     
+    
+    //Add button for MainOld
     @IBOutlet weak var addButton: UIButton!
     
     

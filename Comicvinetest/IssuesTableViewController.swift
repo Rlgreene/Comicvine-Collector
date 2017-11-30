@@ -50,21 +50,35 @@ class IssuesTableViewController: UITableViewController {
             return 0
         }
     }
+    
+    //Controls cell transparency
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.75)
+    }
 
+    //Cell configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issues", for: indexPath)
         let comicvine = (self.collection?.issues![indexPath.row])!
         if let d = comicvine.date {
-        cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + " " + d
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + " : " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }
 
         return cell
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
+        //tableView background picture
+        let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        imageView.contentMode = .scaleAspectFill
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
     //the Save bar button (for MainOld storyboard)

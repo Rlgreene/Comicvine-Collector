@@ -17,6 +17,11 @@ class CollectionTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "My Collections"
+
+        //let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
+        //let imageView = UIImageView(image: backgroundImage)
+        //self.tableView.backgroundView = imageView
+
         
         if !initialLoad{
           print("initial load")
@@ -60,7 +65,12 @@ class CollectionTableViewController: UITableViewController {
         return self.collections.count
     }
 
+    //Controls cell transparency
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.75)
+    }
     
+    //Cell configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "collections", for: indexPath)
         let collection = self.collections [indexPath.row]
@@ -81,6 +91,12 @@ class CollectionTableViewController: UITableViewController {
         autoSave()
         print("autoSave will appear")
         
+        //tableView background picture
+        let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
+        let imageView = UIImageView(image: backgroundImage)
+        self.tableView.backgroundView = imageView
+        imageView.contentMode = .scaleAspectFill
+        tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
     

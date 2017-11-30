@@ -16,6 +16,12 @@ class CollectionNamingViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
+        let backgroundImageView = UIImageView(frame: self.view.frame)
+        backgroundImageView.image = backgroundImage
+        backgroundImageView.contentMode = .scaleAspectFill
+        self.view.insertSubview(backgroundImageView, at: 0)
+        
         self.nameField.delegate = self
         
         if let collection = self.collection {

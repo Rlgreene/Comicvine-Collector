@@ -20,10 +20,10 @@ class SearchDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundImage = UIImage(named: "wood_shelves.jpg")
+        /*let backgroundImage = UIImage(named: "wood_shelves.jpg")
         let backgroundImageView = UIImageView(frame: self.view.frame)
         backgroundImageView.image = backgroundImage
-        self.view.insertSubview(backgroundImageView, at: 0)
+        self.view.insertSubview(backgroundImageView, at: 0)*/
         
         if let comicvine = self.comicvine {
             if let name = comicvine.name {
@@ -48,6 +48,25 @@ class SearchDetailsViewController: UIViewController {
                 }
                 self.coverView.image = UIImage(data: comicvine.cover!)
                 
+                //controls background (uses cover art)
+                let backgroundImage = UIImage(data: comicvine.cover!)
+                let backgroundImageView = UIImageView(frame: self.view.frame)
+                backgroundImageView.image = backgroundImage
+                backgroundImageView.contentMode = .scaleAspectFill
+                self.view.insertSubview(backgroundImageView, at: 0)
+                
+                if #available(iOS 10.0, *) {
+                    let blurEffect = UIBlurEffect(style: .regular)
+                    let blurView = UIVisualEffectView(effect: blurEffect)
+                    blurView.frame = self.view.frame
+                    self.view.insertSubview(blurView, at: 1)
+                } else {
+                    // Fallback on earlier versions
+                    let blurEffect = UIBlurEffect(style: .light)
+                    let blurView = UIVisualEffectView(effect: blurEffect)
+                    blurView.frame = self.view.frame
+                    self.view.insertSubview(blurView, at: 1)
+                }
             }
         }
     }

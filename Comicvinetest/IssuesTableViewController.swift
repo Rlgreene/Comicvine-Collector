@@ -50,11 +50,6 @@ class IssuesTableViewController: UITableViewController {
             return 0
         }
     }
-    
-    //Controls cell transparency
-    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor(white: 1, alpha: 0.75)
-    }
 
     //Cell configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -67,6 +62,11 @@ class IssuesTableViewController: UITableViewController {
         }
 
         return cell
+    }
+    
+    //Controls cell transparency
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor(white: 1, alpha: 0.75)
     }
     
     override func viewWillAppear(_ animated: Bool) {

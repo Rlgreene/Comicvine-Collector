@@ -75,7 +75,7 @@ class CollectionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "collections", for: indexPath)
         let collection = self.collections [indexPath.row]
         
-        //label tag that describes the number of issue items in the corresponding collection cell
+        //label tag that describes the number of issue items within the corresponding collection cell
         let numlabel = cell.viewWithTag(11) as! UILabel
         numlabel.text = "\(String(describing: collection.issues!.count)) books"
         
@@ -95,7 +95,7 @@ class CollectionTableViewController: UITableViewController {
         print("autoSave will appear")
         
         //tableView background picture
-        let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
+        let backgroundImage = UIImage(named: "background4Longbox.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill
@@ -113,8 +113,7 @@ class CollectionTableViewController: UITableViewController {
         let newCollection = Collection(name: "New Collection")
         self.collections.append(newCollection)
         let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
-        self.tableView.insertRows(at: [newIndexPath], with: .automatic)
-        self.tableView.reloadData()
+        self.tableView.insertRows(at: [newIndexPath], with: .middle)
         autoSave()
         print("autoSaved add")
     }
@@ -145,8 +144,18 @@ class CollectionTableViewController: UITableViewController {
         for comicvine in newComics {
             c.addIssue(issue: comicvine)
         }
+        newComics = []
     }
-
+    
+    //Sends the selected data from SearchTableViewController to this vc to avoid creating a duplicate vc (also called in Search's prepareforsegue)
+    @IBAction func unwindToCollectionsTableView(sender: UIStoryboardSegue)
+    {
+        let sourceViewController = sender.source as! SearchTableViewController
+        newComics = sourceViewController.selectedComics!
+        // Pull any data from the view controller which initiated the unwind segue.
+    }
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

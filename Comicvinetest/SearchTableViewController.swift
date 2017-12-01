@@ -20,7 +20,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
-        navigationItem.title = "Search for Comics"
+        navigationItem.title = "Search to Add"
         
         selectedComics = []
 
@@ -88,7 +88,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         return (comicvineResults?.count)!
     }
     
-    //Controls Cell transparency
+    //Cell transparency
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor(white: 1, alpha: 0.55)
     }
@@ -165,6 +165,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         return true
     }
     */
+    
 
     
     // MARK: - Navigation

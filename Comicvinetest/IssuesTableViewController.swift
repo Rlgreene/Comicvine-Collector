@@ -74,7 +74,7 @@ class IssuesTableViewController: UITableViewController {
         tableView.reloadData()
         
         //tableView background picture
-        let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
+        let backgroundImage = UIImage(named: "Longboxbackground.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill

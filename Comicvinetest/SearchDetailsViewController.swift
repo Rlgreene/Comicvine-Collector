@@ -20,11 +20,6 @@ class SearchDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*let backgroundImage = UIImage(named: "wood_shelves.jpg")
-        let backgroundImageView = UIImageView(frame: self.view.frame)
-        backgroundImageView.image = backgroundImage
-        self.view.insertSubview(backgroundImageView, at: 0)*/
-        
         if let comicvine = self.comicvine {
             if let name = comicvine.name {
                 self.nameLabel.text = name

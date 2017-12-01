@@ -19,7 +19,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your collection" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q4h-WE-FCI">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name your longbox" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q4h-WE-FCI">
                                 <rect key="frame" x="16" y="107" width="288" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
@@ -73,7 +73,7 @@
                                 <color key="tintColor" red="0.43441961870000001" green="0.22710320610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <segue destination="Hl8-VS-0kn" kind="show" identifier="issuesSegue" id="QD4-WB-2u8"/>
-                                    <segue destination="YAC-M9-e56" kind="show" identifier="collectionNameSegue" trigger="accessoryAction" id="6TB-ya-Kzo"/>
+                                    <segue destination="YAC-M9-e56" kind="show" identifier="collectionNameSegue" trigger="accessoryAction" id="3UM-Wn-Yuq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -217,7 +217,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Comics" id="Cyb-0v-PtL">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes"/>
                             <scopeButtonTitles>
                                 <string>Title</string>
                                 <string>Title</string>
@@ -248,7 +248,7 @@
                     <navigationItem key="navigationItem" id="BVb-K5-n8D">
                         <barButtonItem key="leftBarButtonItem" title="Add to" id="7rL-vv-oZi">
                             <connections>
-                                <segue destination="6cR-tM-yVo" kind="show" identifier="addComics" id="yUN-le-YNI"/>
+                                <segue destination="FYp-W7-dKT" kind="unwind" unwindAction="unwindToCollectionsTableViewWithSender:" id="umH-AO-R8j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -258,6 +258,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCB-J3-QgK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FYp-W7-dKT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="861" y="-713"/>
         </scene>
@@ -285,11 +286,11 @@
             </objects>
             <point key="canvasLocation" x="-24" y="56"/>
         </scene>
-        <!--Search for Comics-->
+        <!--Search to Add-->
         <scene sceneID="M3D-4I-oya">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uhL-Yt-bRK" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search for Comics" image="glyphicons-28-search" id="JWO-E0-fC2"/>
+                    <tabBarItem key="tabBarItem" title="Search to Add" image="glyphicons-28-search" id="JWO-E0-fC2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jbb-GQ-9aH">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -317,6 +318,5 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4ud-Fv-eNP"/>
-        <segue reference="yUN-le-YNI"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,20 +8,20 @@
 
 import UIKit
 
+class NumOfIssuesCell: UITableViewCell {
+    
+}
+
 class CollectionTableViewController: UITableViewController {
     
+    //@IBOutlet weak var numIssuesLabel: UILabel!
     var collections: [Collection] = []
     var initialLoad : Bool = false
     var newComics: [Comicvine] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "My Collections"
-
-        //let backgroundImage = UIImage(named: "comicbook_shelf.jpg")
-        //let imageView = UIImageView(image: backgroundImage)
-        //self.tableView.backgroundView = imageView
-
+        navigationItem.title = "My Longboxes"
         
         if !initialLoad{
           print("initial load")
@@ -75,12 +75,15 @@ class CollectionTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "collections", for: indexPath)
         let collection = self.collections [indexPath.row]
         
+        //label tag that describes the number of issue items in the corresponding collection cell
+        let numlabel = cell.viewWithTag(11) as! UILabel
+        numlabel.text = "\(String(describing: collection.issues!.count)) books"
+        
         if let name = collection.name {
             cell.textLabel?.text = name
         } else {
             cell.textLabel?.text = "Please name collection"
         }
-        
         return cell
     }
     

@@ -11,7 +11,6 @@ import UIKit
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
-    //@IBOutlet weak var loadingLabel: UILabel!
     
     var collection: Collection?
     var comicvineResults: [Comicvine]?
@@ -22,7 +21,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
         navigationItem.title = "Search for Comics"
-        //self.loadingLabel.text = ""
         
         selectedComics = []
 
@@ -50,7 +48,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             for result in results {
                                 print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"], result["cover_date"]!)
                                 let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String)
-                            //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
+        //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
                                     c.coverUrl = imageURLString
                                     
@@ -116,7 +114,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let backgroundImage = UIImage(named: "wood_shelves.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 

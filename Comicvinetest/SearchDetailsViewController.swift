@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
@@ -43,7 +44,7 @@ class SearchDetailsViewController: UIViewController {
                 }
                 self.coverView.image = UIImage(data: comicvine.cover!)
                 
-                //controls background (uses cover art)
+                //controls background (uses comicvine.cover)
                 let backgroundImage = UIImage(data: comicvine.cover!)
                 let backgroundImageView = UIImageView(frame: self.view.frame)
                 backgroundImageView.image = backgroundImage
@@ -71,6 +72,9 @@ class SearchDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+            SVProgressHUD.dismiss()
+    }
     
     //Add button for MainOld
     @IBOutlet weak var addButton: UIButton!

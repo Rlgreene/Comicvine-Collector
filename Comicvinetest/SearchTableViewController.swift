@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
@@ -31,7 +32,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let searchParameters:[String:Any] = ["api_key": "6121b778a49a69f39054e929a1b6d89d74d74e10",
                                              "format": "json",
-                                             "limit": 20,
+                                             "limit": comicvineResults?.count as Any,
                                              "query": searchString,
                                              "resources": "issue",
                                              "resource-type": "issue"
@@ -68,6 +69,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         searchBar.resignFirstResponder()
         if let searchText = searchBar.text {
             searchComicsBy(searchText)
+            SVProgressHUD.show(withStatus: "Looking for books")
         }
     }
 
@@ -103,7 +105,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }
-
+        
+        SVProgressHUD.dismiss()
         return cell
     }
     
@@ -111,7 +114,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewWillAppear(animated)
         
         //tableView background picture
-        let backgroundImage = UIImage(named: "wood_shelves.jpg")
+        let backgroundImage = UIImage(named: "wood_shelves-1.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFit
@@ -139,46 +142,19 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let s = selectedComics?.index(of: comicvine)
         selectedComics?.remove(at: s!)
     }
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-    
-
     
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "searchDisclosure") {
+        if (segue.identifier == "searchDisclosure"){
+            SVProgressHUD.show(withStatus: "Loading")
         let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
         let comicvine = self.comicvineResults![(indexPath?.row)!]
         let destination = segue.destination as! SearchDetailsViewController
         destination.comicvine = comicvine
         destination.collection = collection
-    }
+        }
+        
+        
         if (segue.identifier == "addComics") {
             let destination = segue.destination as! CollectionTableViewController
             destination.newComics = selectedComics!

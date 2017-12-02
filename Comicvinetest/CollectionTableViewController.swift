@@ -21,7 +21,7 @@ class CollectionTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "My Longboxes"
+        navigationItem.title = "My Shelves"
         
         if !initialLoad{
           print("initial load")
@@ -110,7 +110,7 @@ class CollectionTableViewController: UITableViewController {
     }
     
     @objc func addCollection () {
-        let newCollection = Collection(name: "New Collection")
+        let newCollection = Collection(name: "New Shelf")
         self.collections.append(newCollection)
         let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
         self.tableView.insertRows(at: [newIndexPath], with: .middle)

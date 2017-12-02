@@ -106,8 +106,9 @@ class IssuesTableViewController: UITableViewController {
                 // Delete the row from the data source
                 tableView.deleteRows(at: [indexPath], with: .fade)
                 tableView.reloadData()
-                autoSave()
-                print("autoSaved delete")
+                //autoSave()
+                tableView.reloadData()
+                print("reloaded delete")
             }
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -116,8 +117,8 @@ class IssuesTableViewController: UITableViewController {
     
     @objc func toggleEdit(isEditing: Bool, animated: Bool) {
         tableView.setEditing(!tableView.isEditing, animated: true)
-        autoSave()
-        print("autoSaved toggle")
+        //autoSave()
+        //print("autoSaved toggle")
     }
     
     func autoSave() {
@@ -125,7 +126,7 @@ class IssuesTableViewController: UITableViewController {
         print(documentsPath)
         let savePath = documentsPath + "/collections.dat"
         print(savePath)
-        NSKeyedArchiver.archiveRootObject(collection?.issues, toFile: savePath)
+        NSKeyedArchiver.archiveRootObject(collection?.issues as Any, toFile: savePath)
     }
 
     
@@ -133,8 +134,9 @@ class IssuesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
         let issuesMoving = collection?.issues?.remove(at: fromIndexPath.row)
         collection?.issues?.insert(issuesMoving!, at: to.row)
-        autoSave()
-        print("autoSaved rearranging")
+        //autoSave()
+        tableView.reloadData()
+        print("reloaded rearranging")
     }
     
     //State Resoration, Keep commented out unless needed

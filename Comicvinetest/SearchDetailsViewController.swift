@@ -16,7 +16,6 @@ class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     var comicvine: Comicvine?
     var collection: Collection?
-    var showCollectionsButton: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()

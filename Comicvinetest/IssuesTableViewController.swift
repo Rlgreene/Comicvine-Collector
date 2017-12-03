@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class IssuesTableViewController: UITableViewController {
     
@@ -126,7 +127,7 @@ class IssuesTableViewController: UITableViewController {
         print(documentsPath)
         let savePath = documentsPath + "/collections.dat"
         print(savePath)
-        NSKeyedArchiver.archiveRootObject(collection?.issues as Any, toFile: savePath)
+        NSKeyedArchiver.archiveRootObject(collection!.issues as Any, toFile: savePath)
     }
 
     
@@ -169,15 +170,11 @@ class IssuesTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "searchIssueSegue"){
-            let destination = segue.destination as! SearchTableViewController
-            destination.collection = collection
-        }
         if (segue.identifier == "issueDetail"){
             let destination = segue.destination as! SearchDetailsViewController
             let indexPath = tableView.indexPathForSelectedRow
             let comicvine = self.collection?.issues![(indexPath?.row)!]
-            destination.showCollectionsButton = false
+            SVProgressHUD.show(withStatus: "Getting Book")
             destination.comicvine = comicvine
         }
     }

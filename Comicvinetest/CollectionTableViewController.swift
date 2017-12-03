@@ -117,15 +117,7 @@ class CollectionTableViewController: UITableViewController {
         autoSave()
         print("autoSaved add")
     }
-    
-//the Save button that takes all new/existing data and stores it in the documents folder in the device's hardrive (for MainOld storyboard)
-    @IBAction func saveCollections(_ sender: Any) {
-        let documentsPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        print(documentsPath)
-        let collectionsPath = documentsPath + "/collections.dat"
-        print(collectionsPath)
-        NSKeyedArchiver.archiveRootObject(collections, toFile: collectionsPath)
-    }
+
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {

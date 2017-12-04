@@ -16,7 +16,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var collection: Collection?
     var comicvineResults: [Comicvine]?
     var selectedComics: [Comicvine]?
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +49,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             for result in results {
                                 print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"], result["cover_date"]!)
                                 let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String)
+                                
         //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
                                     c.coverUrl = imageURLString
@@ -98,8 +99,17 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     //Cell Configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "comics", for: indexPath)
-        
         let comicvine = (comicvineResults? [indexPath.row])!
+        let searchThumbnail = cell.viewWithTag(16) as! UIImageView
+
+        /*if let coverUrl = comicvine.coverUrl {
+            let imageData = NSData(contentsOf: URL(string: coverUrl)!)
+            if let imageDataUnwrapped = imageData {
+                comicvine.cover = imageDataUnwrapped as Data
+                searchThumbnail.image = UIImage(data: comicvine.cover!)
+            }
+        }*/
+
         if let d = comicvine.date {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {

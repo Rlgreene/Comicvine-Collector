@@ -42,7 +42,7 @@
         <scene sceneID="Z8c-Fq-FgZ">
             <objects>
                 <tableViewController id="6cR-tM-yVo" customClass="CollectionTableViewController" customModule="Comicvinetest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="A1y-wJ-0cT">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="A1y-wJ-0cT">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -55,7 +55,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQb-Fg-LU3">
-                                            <rect key="frame" x="158" y="33" width="162" height="13"/>
+                                            <rect key="frame" x="200" y="33" width="72" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="13" id="Ywd-XW-fJj"/>
                                             </constraints>
@@ -68,12 +68,12 @@
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="158" id="12N-5x-v66"/>
-                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="dm9-rG-61o" secondAttribute="trailing" constant="110" id="Ia2-gl-WNz"/>
+                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="200" id="12N-5x-v66"/>
+                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="dm9-rG-61o" secondAttribute="trailing" constant="152" id="Ia2-gl-WNz"/>
                                         <constraint firstItem="dm9-rG-61o" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="7" id="LYT-T7-JB9"/>
                                         <constraint firstAttribute="bottom" secondItem="dm9-rG-61o" secondAttribute="bottom" constant="-2.5" id="PVc-Yh-IT6"/>
                                         <constraint firstItem="EQb-Fg-LU3" firstAttribute="top" secondItem="iJJ-le-ZGH" secondAttribute="topMargin" constant="22" id="XH9-zM-MIs"/>
-                                        <constraint firstAttribute="trailing" secondItem="EQb-Fg-LU3" secondAttribute="trailing" constant="-48" id="eX8-uu-HHI"/>
+                                        <constraint firstAttribute="trailing" secondItem="EQb-Fg-LU3" secondAttribute="trailing" id="eX8-uu-HHI"/>
                                         <constraint firstItem="dm9-rG-61o" firstAttribute="top" secondItem="iJJ-le-ZGH" secondAttribute="top" constant="-9" id="uep-Lb-Gqr"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -105,12 +105,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="issues" id="3bC-qu-Fbo">
+                            <tableViewCell clipsSubviews="YES" tag="13" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="issues" id="3bC-qu-Fbo">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3bC-qu-Fbo" id="AH0-sm-xc8">
                                     <rect key="frame" x="0.0" y="0.0" width="286" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="15" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7f-Dk-dM0">
+                                            <rect key="frame" x="0.0" y="-13" width="54" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="6Me-MV-q04" kind="show" identifier="issueDetail" id="GhR-pP-OLF"/>
@@ -125,7 +131,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IOF-NQ-BiP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="56"/>
+            <point key="canvasLocation" x="1792.5" y="55.985915492957744"/>
         </scene>
         <!--Search Details View Controller-->
         <scene sceneID="vCK-Kr-qKw">
@@ -216,11 +222,10 @@
         <scene sceneID="nSk-Z8-NOF">
             <objects>
                 <tableViewController id="Psx-gA-X2P" customClass="SearchTableViewController" customModule="Comicvinetest" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ywS-oq-STm">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ywS-oq-STm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="sectionIndexBackgroundColor" red="0.77074562820000003" green="0.63415014300000005" blue="0.04460608781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search Comics" id="Cyb-0v-PtL">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -240,6 +245,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g7B-m8-oWX" id="NRn-Cb-hMy">
                                     <rect key="frame" x="0.0" y="0.0" width="252" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="16" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mbd-Hh-3sq">
+                                            <rect key="frame" x="0.0" y="-13" width="54" height="68"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.43441961870000001" green="0.22710320610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -324,6 +335,6 @@
         <image name="glyphicons-72-book" width="22" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4ud-Fv-eNP"/>
+        <segue reference="GhR-pP-OLF"/>
     </inferredMetricsTieBreakers>
 </document>

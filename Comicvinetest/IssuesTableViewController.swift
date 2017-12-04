@@ -22,7 +22,6 @@ class IssuesTableViewController: UITableViewController {
         let moveButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(IssuesTableViewController.toggleEdit))
             navigationItem.rightBarButtonItem = moveButton
         
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -56,6 +55,11 @@ class IssuesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issues", for: indexPath)
         let comicvine = (self.collection?.issues![indexPath.row])!
+        let thumbnail = cell.viewWithTag(15) as! UIImageView
+
+    //having crashes with collections with more than 40 issues when displaying thumbnails
+        //thumbnail.image = UIImage(data: comicvine.cover!)
+        
         if let d = comicvine.date {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
@@ -106,7 +110,6 @@ class IssuesTableViewController: UITableViewController {
                 c.issues?.remove(at: indexPath.row)
                 // Delete the row from the data source
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                tableView.reloadData()
                 //autoSave()
                 tableView.reloadData()
                 print("reloaded delete")

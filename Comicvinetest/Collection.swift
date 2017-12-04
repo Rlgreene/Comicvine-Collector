@@ -35,8 +35,5 @@ class Collection: NSObject, NSCoding {
         aCoder.encode(name, forKey: "name")
         aCoder.encode(issues, forKey: "issues")
     }
-   // NSKeyedArchiver.archiveRootObject(collections, toFile: "/path/to/archive")
-    
-   // let data = NSKeyedArchiver.archivedData(withRootObject: collections)
-   // NSUserDefaults.standardUserDefaults().setObject(data, forKey: "collections")
+   
 }

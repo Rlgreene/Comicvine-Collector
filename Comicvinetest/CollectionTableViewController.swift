@@ -11,10 +11,10 @@ import UIKit
 
 class CollectionTableViewController: UITableViewController {
     
-    //@IBOutlet weak var numIssuesLabel: UILabel!
     var collections: [Collection] = []
     var initialLoad : Bool = false
     var newComics: [Comicvine] = []
+    var comicvine: Comicvine?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,6 +71,9 @@ class CollectionTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "collections", for: indexPath)
         let collection = self.collections [indexPath.row]
+        
+        /*let coverThumbnail = cell.viewWithTag(12) as! UIImageView
+        coverThumbnail.image = UIImage(data: comicvine!.cover!, scale: collections.first)*/
         
         //label tag that describes the number of issue items within the corresponding collection cell
         let numlabel = cell.viewWithTag(11) as! UILabel

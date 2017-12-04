@@ -72,6 +72,7 @@ class SearchDetailsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+    //here is where i figure telling the app when to stop animating
         SVProgressHUD.dismiss()
     }
     

@@ -146,6 +146,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "searchDisclosure"){
+    //Trying to get the activity indicator to show up once the button is tapped
             SVProgressHUD.show(withStatus: "Getting Book")
         let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
         let comicvine = self.comicvineResults![(indexPath?.row)!]

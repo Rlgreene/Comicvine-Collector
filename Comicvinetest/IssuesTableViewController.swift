@@ -174,6 +174,7 @@ class IssuesTableViewController: UITableViewController {
             let destination = segue.destination as! SearchDetailsViewController
             let indexPath = tableView.indexPathForSelectedRow
             let comicvine = self.collection?.issues![(indexPath?.row)!]
+        //Trying to get the activity indicator to show up once the cell is tapped
             SVProgressHUD.show(withStatus: "Getting Book")
             destination.comicvine = comicvine
         }

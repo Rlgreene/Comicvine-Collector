@@ -72,7 +72,7 @@ class SearchDetailsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-            SVProgressHUD.dismiss()
+        SVProgressHUD.dismiss()
     }
     
     //Add button for MainOld

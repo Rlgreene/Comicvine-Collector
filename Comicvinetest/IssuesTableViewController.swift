@@ -57,7 +57,7 @@ class IssuesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issues", for: indexPath)
         let comicvine = (self.collection?.issues![indexPath.row])!
         if let d = comicvine.date {
-            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + " : " + d
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }
@@ -75,7 +75,7 @@ class IssuesTableViewController: UITableViewController {
         tableView.reloadData()
         
         //tableView background picture
-        let backgroundImage = UIImage(named: "Longboxbackground.jpg")
+        let backgroundImage = UIImage(named: "ShelfScreen.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFill

@@ -101,7 +101,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let comicvine = (comicvineResults? [indexPath.row])!
         if let d = comicvine.date {
-            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + " " + d
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }

@@ -55,7 +55,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQb-Fg-LU3">
-                                            <rect key="frame" x="16" y="33" width="304" height="13"/>
+                                            <rect key="frame" x="158" y="33" width="162" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="13" id="Ywd-XW-fJj"/>
                                             </constraints>
@@ -63,11 +63,18 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dm9-rG-61o">
+                                            <rect key="frame" x="7" y="-9" width="41" height="55"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="158" id="12N-5x-v66"/>
+                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="dm9-rG-61o" secondAttribute="trailing" constant="110" id="Ia2-gl-WNz"/>
+                                        <constraint firstItem="dm9-rG-61o" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="7" id="LYT-T7-JB9"/>
+                                        <constraint firstAttribute="bottom" secondItem="dm9-rG-61o" secondAttribute="bottom" constant="-2.5" id="PVc-Yh-IT6"/>
                                         <constraint firstItem="EQb-Fg-LU3" firstAttribute="top" secondItem="iJJ-le-ZGH" secondAttribute="topMargin" constant="22" id="XH9-zM-MIs"/>
                                         <constraint firstAttribute="trailing" secondItem="EQb-Fg-LU3" secondAttribute="trailing" constant="-48" id="eX8-uu-HHI"/>
-                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="16" id="oGe-ze-INg"/>
+                                        <constraint firstItem="dm9-rG-61o" firstAttribute="top" secondItem="iJJ-le-ZGH" secondAttribute="top" constant="-9" id="uep-Lb-Gqr"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.43441961870000001" green="0.22710320610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

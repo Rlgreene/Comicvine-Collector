@@ -8,9 +8,6 @@
 
 import UIKit
 
-class NumOfIssuesCell: UITableViewCell {
-    
-}
 
 class CollectionTableViewController: UITableViewController {
     

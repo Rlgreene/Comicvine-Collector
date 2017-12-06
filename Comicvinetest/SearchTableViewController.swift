@@ -47,8 +47,8 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             if let results = responseObject["results"] as? [[String: AnyObject]] {
                             self.comicvineResults = [Comicvine]()
                             for result in results {
-                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"], result["cover_date"]!)
-                                let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String)
+                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"], result["cover_date"]!, result["store_date"]!)
+                                let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String, saleDate: result["store_date"] as? String)
                                 
         //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
                                 if let imageURLString = result["image"]?["medium_url"] as? String {
@@ -110,7 +110,9 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             }
         }*/
 
-        if let d = comicvine.date {
+        if let s = comicvine.saleDate {
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + s
+        } else if let d = comicvine.saleDate {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
@@ -124,7 +126,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         super.viewWillAppear(animated)
         
         //tableView background picture
-        let backgroundImage = UIImage(named: "wood_shelves-1.jpg")
+        let backgroundImage = UIImage(named: "woodshelves-good-1.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
         imageView.contentMode = .scaleAspectFit
@@ -156,13 +158,11 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "searchDisclosure"){
-    //Trying to get the activity indicator to show up once the button is tapped
-            SVProgressHUD.show(withStatus: "Getting Book")
-        let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
-        let comicvine = self.comicvineResults![(indexPath?.row)!]
-        let destination = segue.destination as! SearchDetailsViewController
-        destination.comicvine = comicvine
-        destination.collection = collection
+            let indexPath = self.tableView.indexPath(for: sender as! UITableViewCell)
+            let comicvine = self.comicvineResults![(indexPath?.row)!]
+            let destination = segue.destination as! SearchDetailsViewController
+            destination.comicvine = comicvine
+            destination.collection = collection
         }
         
         

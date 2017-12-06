@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 class IssuesTableViewController: UITableViewController {
     
@@ -60,7 +59,9 @@ class IssuesTableViewController: UITableViewController {
     //having crashes with collections with more than 40 issues when displaying thumbnails
         //thumbnail.image = UIImage(data: comicvine.cover!)
         
-        if let d = comicvine.date {
+        if let s = comicvine.saleDate {
+            cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + s
+        } else if let d = comicvine.date {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
@@ -177,8 +178,6 @@ class IssuesTableViewController: UITableViewController {
             let destination = segue.destination as! SearchDetailsViewController
             let indexPath = tableView.indexPathForSelectedRow
             let comicvine = self.collection?.issues![(indexPath?.row)!]
-        //Trying to get the activity indicator to show up once the cell is tapped
-            SVProgressHUD.show(withStatus: "Getting Book")
             destination.comicvine = comicvine
         }
     }

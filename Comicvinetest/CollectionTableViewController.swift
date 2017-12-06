@@ -20,6 +20,13 @@ class CollectionTableViewController: UITableViewController {
         super.viewDidLoad()
         navigationItem.title = "My Shelves"
         
+        let addButton = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector(CollectionTableViewController.addCollection))
+        navigationItem.rightBarButtonItem = addButton
+        
+        let moveButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(CollectionTableViewController.toggleEdit))
+        navigationItem.leftBarButtonItem = moveButton
+
+        
         if !initialLoad{
           print("initial load")
         
@@ -36,9 +43,6 @@ class CollectionTableViewController: UITableViewController {
         }
         self.tableView.reloadData()
         print("view did load")
-        
-        let addButton = UIBarButtonItem (barButtonSystemItem: .add, target: self, action: #selector(CollectionTableViewController.addCollection))
-        navigationItem.rightBarButtonItem = addButton
          
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
@@ -113,7 +117,7 @@ class CollectionTableViewController: UITableViewController {
         let newCollection = Collection(name: "New Shelf")
         self.collections.append(newCollection)
         let newIndexPath = IndexPath(row: self.collections.count - 1, section: 0)
-        self.tableView.insertRows(at: [newIndexPath], with: .middle)
+        self.tableView.insertRows(at: [newIndexPath], with: .right)
         autoSave()
         print("autoSaved add")
     }
@@ -139,7 +143,7 @@ class CollectionTableViewController: UITableViewController {
         newComics = []
     }
     
-    //Sends the selected data from SearchTableViewController to this vc to avoid creating a duplicate vc (also called in Search's prepareforsegue)
+    //Sends the selected data from SearchTableViewController to this vc via unwind segue to avoid creating a duplicate vc (called first in Search's prepareforsegue)
     @IBAction func unwindToCollectionsTableView(sender: UIStoryboardSegue)
     {
         let sourceViewController = sender.source as! SearchTableViewController
@@ -147,13 +151,27 @@ class CollectionTableViewController: UITableViewController {
         // Pull any data from the view controller which initiated the unwind segue.
     }
     
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    @objc func toggleEdit(isEditing: Bool, animated: Bool) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        
+        print("toggle")
     }
-    */
+    
+    func movebuttonTitle(isEditing: Bool, animated: Bool) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        let item = self.navigationItem.leftBarButtonItem
+        let button = item?.customView as? UIButton
+        button?.setTitle("Move", for: .normal)
+        print("movebutton")
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        let shelfMoving = collections.remove(at: fromIndexPath.row)
+        collections.insert(shelfMoving, at: to.row)
+        autoSave()
+        tableView.reloadData()
+        print("reloaded rearranging")
+    }
 
     /*
     // Override to support conditional rearranging of the table view.

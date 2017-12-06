@@ -7,18 +7,33 @@
 //
 
 import UIKit
-import SVProgressHUD
 
 class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var issueNumberLabel: UILabel!
     @IBOutlet weak var coverView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var saleDateLabel: UILabel!
     var comicvine: Comicvine?
     var collection: Collection?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = comicvine?.name
+        
+        //Create Activity Indicator
+        let myActivityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
+        
+        //Position activity indicator in the center of the main view
+        myActivityIndicator.center = view.center
+        
+        //if needed, you can prevent the activity indicator from hiding when stopAnimating() is called
+        myActivityIndicator.hidesWhenStopped = true
+        
+        //Start activity indicator
+        myActivityIndicator.startAnimating()
+        
+        view.addSubview(myActivityIndicator)
         
         if let comicvine = self.comicvine {
             if let name = comicvine.name {
@@ -29,19 +44,29 @@ class SearchDetailsViewController: UIViewController {
                 self.issueNumberLabel.text = issueNumber
             }
             
-            if let date = comicvine.date {
-                self.dateLabel.text = "Print released on \(date)"
+            if let saleDate = comicvine.saleDate {
+                self.saleDateLabel.text = "Released on: \(saleDate)"
             } else {
-                self.dateLabel.text = "Release date unavailable"
+                self.saleDateLabel.text = "Release date unavailable"
+            }
+            
+            if let date = comicvine.date {
+                self.dateLabel.text = "Cover date: \(date)"
+            } else {
+                self.dateLabel.text = "Cover date unavailable"
             }
             
             if let coverUrl = comicvine.coverUrl {
+                DispatchQueue.main.async {
                 let imageData = NSData(contentsOf: URL(string: coverUrl)!)
                 if let imageDataUnwrapped = imageData {
                     comicvine.cover = imageDataUnwrapped as Data
                     
                 }
                 self.coverView.image = UIImage(data: comicvine.cover!)
+                    
+                //call stopAnimating() when need to stop activity indicator
+                    myActivityIndicator.stopAnimating()
                 
                 //controls background (uses comicvine.cover)
                 let backgroundImage = UIImage(data: comicvine.cover!)
@@ -62,6 +87,7 @@ class SearchDetailsViewController: UIViewController {
                     blurView.frame = self.view.frame
                     self.view.insertSubview(blurView, at: 1)
                 }
+                }
             }
         }
     }
@@ -71,9 +97,9 @@ class SearchDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
     //here is where i figure telling the app when to stop animating
-        SVProgressHUD.dismiss()
+        print("view will appear")
     }
     
     //Add button for MainOld

@@ -56,7 +56,7 @@ class IssuesTableViewController: UITableViewController {
         let comicvine = (self.collection?.issues![indexPath.row])!
         let thumbnail = cell.viewWithTag(15) as! UIImageView
 
-    //having crashes with collections with more than 40 issues when displaying thumbnails
+    //having crashes with collections with more than 10 issues when displaying thumbnails or adding to a collection
         //thumbnail.image = UIImage(data: comicvine.cover!)
         
         if let s = comicvine.saleDate {

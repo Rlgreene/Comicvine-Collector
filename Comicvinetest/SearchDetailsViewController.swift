@@ -57,6 +57,7 @@ class SearchDetailsViewController: UIViewController {
             }
             
             if let coverUrl = comicvine.coverUrl {
+                //load the image data asynchronously
                 DispatchQueue.main.async {
                 let imageData = NSData(contentsOf: URL(string: coverUrl)!)
                 if let imageDataUnwrapped = imageData {

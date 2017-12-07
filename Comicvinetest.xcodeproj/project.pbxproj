@@ -86,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E209A8E1FD8F270003D91AB /* Custom Classes */ = {
+			isa = PBXGroup;
+			children = (
+				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
+				0E3BEBFE1F96A969008B559D /* Collection.swift */,
+			);
+			path = "Custom Classes";
+			sourceTree = "<group>";
+		};
 		0EA35BE71F7C625400842F4B = {
 			isa = PBXGroup;
 			children = (
@@ -113,16 +122,15 @@
 				0EA35BF31F7C625400842F4B /* AppDelegate.swift */,
 				0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */,
 				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
-				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
 				0EA35BFA1F7C625400842F4B /* Assets.xcassets */,
 				0EA35BF71F7C625400842F4B /* MainOld.storyboard */,
 				0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */,
 				0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */,
 				0E3BEC001F96B19C008B559D /* CollectionNamingViewController.swift */,
-				0E3BEBFE1F96A969008B559D /* Collection.swift */,
 				0E3BEC021F98EB76008B559D /* IssuesTableViewController.swift */,
 				0E209A8C1FD8A17A003D91AB /* CoverViewController.swift */,
 				0EA35BFF1F7C625400842F4B /* Info.plist */,
+				0E209A8E1FD8F270003D91AB /* Custom Classes */,
 			);
 			path = Comicvinetest;
 			sourceTree = "<group>";
@@ -148,6 +156,7 @@
 				0EA35BED1F7C625400842F4B /* Frameworks */,
 				0EA35BEE1F7C625400842F4B /* Resources */,
 				0EA35C141F7C6E3F00842F4B /* Embed Frameworks */,
+				0EB471731FD99684005DDCFF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -207,6 +216,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0EB471731FD99684005DDCFF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/AFNetworking.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SVProgressHUD.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0EA35BEC1F7C625400842F4B /* Sources */ = {
@@ -390,6 +418,7 @@
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comictest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = bridge.h;

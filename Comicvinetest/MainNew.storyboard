@@ -179,6 +179,13 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="-1.5" height="-1.5"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUb-ho-60P">
+                                <rect key="frame" x="50" y="118" width="220" height="320"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <segue destination="Yhi-Bu-N5D" kind="show" identifier="coverView" id="7RQ-cL-v49"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -214,7 +221,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7P2-Ep-N1d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1791.2" y="-713.79310344827593"/>
+            <point key="canvasLocation" x="1790.625" y="-714.08450704225356"/>
+        </scene>
+        <!--Cover View Controller-->
+        <scene sceneID="Yja-lh-YJU">
+            <objects>
+                <viewController id="Yhi-Bu-N5D" customClass="CoverViewController" customModule="Comicvinetest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Buu-lE-6cc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E1v-2Q-z1H" userLabel="Cover View">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="455" id="o5x-u6-tJQ"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="E1v-2Q-z1H" firstAttribute="top" secondItem="jik-Rw-NyX" secondAttribute="top" id="53n-I1-Q8M"/>
+                            <constraint firstAttribute="trailing" secondItem="E1v-2Q-z1H" secondAttribute="trailing" id="ESC-tH-8eZ"/>
+                            <constraint firstItem="E1v-2Q-z1H" firstAttribute="leading" secondItem="Buu-lE-6cc" secondAttribute="leading" id="TIB-Sy-ua9"/>
+                            <constraint firstItem="E1v-2Q-z1H" firstAttribute="bottom" secondItem="jik-Rw-NyX" secondAttribute="bottom" id="Tax-UI-fF5"/>
+                            <constraint firstItem="E1v-2Q-z1H" firstAttribute="top" secondItem="jik-Rw-NyX" secondAttribute="top" id="U4K-SS-Lb5"/>
+                            <constraint firstItem="E1v-2Q-z1H" firstAttribute="trailing" secondItem="jik-Rw-NyX" secondAttribute="trailing" id="eZC-oW-dgd"/>
+                            <constraint firstItem="E1v-2Q-z1H" firstAttribute="leading" secondItem="jik-Rw-NyX" secondAttribute="leading" id="kgl-vk-5pT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jik-Rw-NyX"/>
+                    </view>
+                    <connections>
+                        <outlet property="coverView" destination="E1v-2Q-z1H" id="Bov-ww-U4G"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yPe-Wx-18H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2606.25" y="-713.02816901408448"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vd0-ck-6ZH">

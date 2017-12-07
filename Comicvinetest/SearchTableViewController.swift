@@ -165,7 +165,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             destination.collection = collection
         }
         
-        
         if (segue.identifier == "addComics") {
             let destination = segue.destination as! CollectionTableViewController
             destination.newComics = selectedComics!

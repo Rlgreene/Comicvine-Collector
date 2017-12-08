@@ -94,6 +94,7 @@ class CollectionTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         print("view will appear")
+        autoSave()
         self.tableView.reloadData()
         autoSave()
         print("autoSave will appear")

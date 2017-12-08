@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0E1FA3E71FD337C2003A1658 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1FA3E61FD337C2003A1658 /* SVProgressHUD.framework */; };
-		0E1FA3E81FD337EB003A1658 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1FA3E61FD337C2003A1658 /* SVProgressHUD.framework */; };
 		0E1FA3E91FD337EB003A1658 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1FA3E61FD337C2003A1658 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0E209A8D1FD8A17A003D91AB /* CoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E209A8C1FD8A17A003D91AB /* CoverViewController.swift */; };
 		0E2F6B5B1FBDF67A00C463B6 /* MainNew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E2F6B5A1FBDF67A00C463B6 /* MainNew.storyboard */; };
@@ -78,7 +77,6 @@
 			files = (
 				0E1FA3E71FD337C2003A1658 /* SVProgressHUD.framework in Frameworks */,
 				0EA35C121F7C6E3F00842F4B /* SwiftyJSON.framework in Frameworks */,
-				0E1FA3E81FD337EB003A1658 /* SVProgressHUD.framework in Frameworks */,
 				0EA35C101F7C6E3F00842F4B /* AFNetworking.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,7 +172,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0900;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Richard Greene";
 				TargetAttributes = {
 					0EA35BEF1F7C625400842F4B = {

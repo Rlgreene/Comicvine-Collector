@@ -47,11 +47,11 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             if let results = responseObject["results"] as? [[String: AnyObject]] {
                             self.comicvineResults = [Comicvine]()
                             for result in results {
-                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["medium_url"], result["cover_date"]!, result["store_date"]!)
+                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["original_url"], result["cover_date"]!, result["store_date"]!)
                                 let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String, saleDate: result["store_date"] as? String)
                                 
         //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
-                                if let imageURLString = result["image"]?["medium_url"] as? String {
+                                if let imageURLString = result["image"]?["original_url"] as? String {
                                     c.coverUrl = imageURLString
                                     
                                     self.comicvineResults?.append(c)
@@ -112,7 +112,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
 
         if let s = comicvine.saleDate {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + s
-        } else if let d = comicvine.saleDate {
+        } else if let d = comicvine.date {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
@@ -124,12 +124,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.tableView.reloadData()
         
         //tableView background picture
         let backgroundImage = UIImage(named: "woodshelves-good-1.jpg")
         let imageView = UIImageView(image: backgroundImage)
         self.tableView.backgroundView = imageView
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         tableView.tableFooterView = UIView(frame: CGRect.zero)
     }
 
@@ -154,6 +155,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let s = selectedComics?.index(of: comicvine)
         selectedComics?.remove(at: s!)
     }
+    
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

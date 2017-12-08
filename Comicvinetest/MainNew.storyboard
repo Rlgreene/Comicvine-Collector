@@ -325,11 +325,6 @@
                                 <segue destination="FYp-W7-dKT" kind="unwind" unwindAction="unwindToCollectionsTableViewWithSender:" id="umH-AO-R8j"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Uncheck all" id="WgZ-S9-U8r">
-                            <connections>
-                                <action selector="unCheckbutton:" destination="Psx-gA-X2P" id="zoC-Fp-NHy"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>

@@ -150,6 +150,9 @@ class CollectionTableViewController: UITableViewController {
         let sourceViewController = sender.source as! SearchTableViewController
         newComics = sourceViewController.selectedComics!
         // Pull any data from the view controller which initiated the unwind segue.
+        
+        sourceViewController.selectedComics = []
+        //reset the array of selected comics to clear up for the next add cycle
     }
     
     @objc func toggleEdit(isEditing: Bool, animated: Bool) {

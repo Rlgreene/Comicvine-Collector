@@ -140,7 +140,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         // Return false if you do not want the specified item to be editable.
         return false
     }
-    //Next two funcs enable selection and deselection of cells displaying a checkmark, used for adding comics to collections
+    //Next two funcs enable selection and deselection of cells displaying a checkmark, used for adding comics to collections/"shelves"
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.accessoryType = .checkmark

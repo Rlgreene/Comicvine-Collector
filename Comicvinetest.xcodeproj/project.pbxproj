@@ -87,8 +87,8 @@
 		0E209A8E1FD8F270003D91AB /* Custom Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
 				0E3BEBFE1F96A969008B559D /* Collection.swift */,
+				0E47C2221F86722500AEA3CC /* Comicvine.swift */,
 			);
 			path = "Custom Classes";
 			sourceTree = "<group>";
@@ -116,17 +116,17 @@
 		0EA35BF21F7C625400842F4B /* Comicvinetest */ = {
 			isa = PBXGroup;
 			children = (
+				0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */,
 				0E2F6B5A1FBDF67A00C463B6 /* MainNew.storyboard */,
 				0EA35BF31F7C625400842F4B /* AppDelegate.swift */,
 				0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */,
 				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
-				0EA35BFA1F7C625400842F4B /* Assets.xcassets */,
-				0EA35BF71F7C625400842F4B /* MainOld.storyboard */,
-				0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */,
 				0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */,
 				0E3BEC001F96B19C008B559D /* CollectionNamingViewController.swift */,
 				0E3BEC021F98EB76008B559D /* IssuesTableViewController.swift */,
 				0E209A8C1FD8A17A003D91AB /* CoverViewController.swift */,
+				0EA35BF71F7C625400842F4B /* MainOld.storyboard */,
+				0EA35BFA1F7C625400842F4B /* Assets.xcassets */,
 				0EA35BFF1F7C625400842F4B /* Info.plist */,
 				0E209A8E1FD8F270003D91AB /* Custom Classes */,
 			);

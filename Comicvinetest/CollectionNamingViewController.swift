@@ -41,9 +41,13 @@ class CollectionNamingViewController: UIViewController, UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == self.nameField {
             self.collection?.name = textField.text
-        } 
+        }
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameField.resignFirstResponder()
+        return(true)
+    }
 
     /*
     // MARK: - Navigation

@@ -60,7 +60,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" tag="11" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EQb-Fg-LU3">
-                                            <rect key="frame" x="200" y="33" width="33" height="13"/>
+                                            <rect key="frame" x="200" y="30" width="33" height="13"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="13" id="Ywd-XW-fJj"/>
                                             </constraints>
@@ -70,8 +70,8 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="leading" secondItem="iJJ-le-ZGH" secondAttribute="leading" constant="200" id="12N-5x-v66"/>
-                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="top" secondItem="iJJ-le-ZGH" secondAttribute="topMargin" constant="22" id="XH9-zM-MIs"/>
+                                        <constraint firstItem="EQb-Fg-LU3" firstAttribute="top" secondItem="iJJ-le-ZGH" secondAttribute="topMargin" constant="19" id="XH9-zM-MIs"/>
+                                        <constraint firstAttribute="trailing" secondItem="EQb-Fg-LU3" secondAttribute="trailing" constant="39" id="bHV-5u-97D"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" red="0.43441961870000001" green="0.22710320610000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

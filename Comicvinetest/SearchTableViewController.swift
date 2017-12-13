@@ -17,7 +17,6 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var comicvineResults: [Comicvine]?
     var selectedComics: [Comicvine]?
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()

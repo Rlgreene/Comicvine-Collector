@@ -9,6 +9,7 @@
 import UIKit
 import SVProgressHUD
 
+
 class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     
     @IBOutlet weak var searchBar: UISearchBar!
@@ -17,11 +18,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     var comicvineResults: [Comicvine]?
     var selectedComics: [Comicvine]?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.comicvineResults = [Comicvine]()
         navigationItem.title = "Search to Add"
         
+        //create an array for selected comic(s) to populate
         selectedComics = []
 
     }
@@ -31,7 +34,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let searchParameters:[String:Any] = ["api_key": "6121b778a49a69f39054e929a1b6d89d74d74e10",
                                              "format": "json",
-                                             "limit": comicvineResults?.count as Any,
+                                             "limit": 100,
                                              "query": searchString,
                                              "resources": "issue",
                                              "resource-type": "issue"
@@ -46,7 +49,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                             if let results = responseObject["results"] as? [[String: AnyObject]] {
                             self.comicvineResults = [Comicvine]()
                             for result in results {
-                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["original_url"], result["cover_date"]!, result["store_date"]!)
+                                print(result["volume"]!["name"], result["issue_number"]!, result["image"]!["original_url"], result["cover_date"]!, result["store_date"]!, result["image"]!["icon_url"])
                                 let c = Comicvine(issueNumber: result["issue_number"] as? String, name: result["volume"]?["name"] as? String, date: result["cover_date"] as? String, saleDate: result["store_date"] as? String)
                                 
         //'if let' below parses the location of the cover art (rest of the code that loads it is on the corresponding details VC)
@@ -55,8 +58,13 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
                                     
                                     self.comicvineResults?.append(c)
                                 }
+                                if let iconURLString = result["image"]?["icon_url"] as? String {
+                                    c.iconUrl = iconURLString
+                                }
                             }
-                            self.tableView.reloadData()
+                                DispatchQueue.main.async {
+                                    self.tableView.reloadData()
+                                }
                             }
                         }
                         
@@ -72,6 +80,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             SVProgressHUD.show(withStatus: "Looking for books")
         }
     }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -94,21 +103,17 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.backgroundColor = UIColor(white: 1, alpha: 0.55)
     }
+    
 
     //Cell Configuration
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "comics", for: indexPath)
         let comicvine = (comicvineResults? [indexPath.row])!
-        let searchThumbnail = cell.viewWithTag(16) as! UIImageView
-
-        /*if let coverUrl = comicvine.coverUrl {
-            let imageData = NSData(contentsOf: URL(string: coverUrl)!)
-            if let imageDataUnwrapped = imageData {
-                comicvine.cover = imageDataUnwrapped as Data
-                searchThumbnail.image = UIImage(data: comicvine.cover!)
-            }
-        }*/
-
+        let searchThumbnail = cell.viewWithTag(16) as? UIImageView
+        
+        searchThumbnail?.downloadImageUrl(urlString: comicvine.iconUrl!, defaultThumbnail: "Shelf-Icon180X180"); print("thumbnail")
+        //Asynchonously load and cache thumbnails, smooth scrolling, uses default thumbnail for images being downloaded
+        
         if let s = comicvine.saleDate {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + s
         } else if let d = comicvine.date {
@@ -171,6 +176,5 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
             destination.newComics = selectedComics!
         }
     }
-    
-
 }
+

@@ -149,7 +149,7 @@ class CollectionTableViewController: UITableViewController {
     {
         let sourceViewController = sender.source as! SearchTableViewController
         newComics = sourceViewController.selectedComics!
-        // Pull any data from the view controller which initiated the unwind segue.
+        // Pull any data from the view controller that initiated the unwind segue.
         
         sourceViewController.selectedComics = []
         //reset the array of selected comics to clear up for the next add cycle
@@ -161,6 +161,7 @@ class CollectionTableViewController: UITableViewController {
         print("toggle")
     }
     
+    //configure the Edit button's display
     func movebuttonTitle(isEditing: Bool, animated: Bool) {
         tableView.setEditing(!tableView.isEditing, animated: true)
         let item = self.navigationItem.leftBarButtonItem
@@ -168,10 +169,10 @@ class CollectionTableViewController: UITableViewController {
         button?.setTitle("Move", for: .normal)
         print("movebutton")
     }
-    
+    //the rearranging func
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let shelfMoving = collections.remove(at: fromIndexPath.row)
-        collections.insert(shelfMoving, at: to.row)
+        let collectionMoving = collections.remove(at: fromIndexPath.row)
+        collections.insert(collectionMoving, at: to.row)
         autoSave()
         tableView.reloadData()
         print("reloaded rearranging")

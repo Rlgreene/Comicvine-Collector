@@ -15,7 +15,8 @@ class Comicvine: NSObject, NSCoding {
     var coverUrl: String?
     var date: String?
     var saleDate: String?
-    
+    var thumbnail: Data?
+    var iconUrl: String?
     
     init (issueNumber: String?, name: String?, date: String?, saleDate: String?){
         self.issueNumber = issueNumber
@@ -32,11 +33,15 @@ class Comicvine: NSObject, NSCoding {
         let coverUrl = aDecoder.decodeObject(forKey: "coverUrl") as! String
         let date = aDecoder.decodeObject(forKey: "date") as! String?
         let saleDate = aDecoder.decodeObject(forKey: "saleDate") as! String?
+        let thumbnail = aDecoder.decodeObject(forKey: "thumbnail") as! Data?
+        let iconUrl = aDecoder.decodeObject(forKey:"iconUrl") as! String?
         
     //initializer being used when saving/displaying cell textLabels in 'IssuesTableViewController'
         self.init(issueNumber: issueNumber, name: name, date: date, saleDate: saleDate)
         self.cover = cover
         self.coverUrl = coverUrl
+        self.thumbnail = thumbnail
+        self.iconUrl = iconUrl
         
     }
     
@@ -47,5 +52,7 @@ class Comicvine: NSObject, NSCoding {
         aCoder.encode(coverUrl, forKey: "coverUrl")
         aCoder.encode(date, forKey: "date")
         aCoder.encode(saleDate, forKey: "saleDate")
+        aCoder.encode(thumbnail, forKey: "thumbnail")
+        aCoder.encode(iconUrl, forKey: "iconUrl")
     }
 }

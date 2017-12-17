@@ -21,6 +21,7 @@ class IssuesTableViewController: UITableViewController {
         let moveButton = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(IssuesTableViewController.toggleEdit))
             navigationItem.rightBarButtonItem = moveButton
         
+        //create for loop for downloading data for iconUrl here
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -54,10 +55,7 @@ class IssuesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "issues", for: indexPath)
         let comicvine = (self.collection?.issues![indexPath.row])!
-        let thumbnail = cell.viewWithTag(15) as! UIImageView
 
-    //having crashes with collections with more than 10 issues when displaying thumbnails or adding to a collection
-        //thumbnail.image = UIImage(data: comicvine.cover!)
         
         if let s = comicvine.saleDate {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + s
@@ -65,6 +63,12 @@ class IssuesTableViewController: UITableViewController {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + d
         } else {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
+        }
+        
+        if let thumbnail = cell.viewWithTag(15) as? UIImageView {
+            if let thumbnailData = comicvine.thumbnail {
+                thumbnail.image = UIImage(data: thumbnailData)
+            }
         }
 
         return cell

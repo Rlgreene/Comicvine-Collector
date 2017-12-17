@@ -42,7 +42,6 @@ class Comicvine: NSObject, NSCoding {
         self.coverUrl = coverUrl
         self.thumbnail = thumbnail
         self.iconUrl = iconUrl
-        
     }
     
     func encode(with aCoder: NSCoder) {

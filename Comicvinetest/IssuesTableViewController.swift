@@ -65,9 +65,16 @@ class IssuesTableViewController: UITableViewController {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber!
         }
         
-        let thumbnail = cell.viewWithTag(15) as? UIImageView
-        
-        thumbnail?.downloadImageUrl(urlString: comicvine.iconUrl!, defaultThumbnail: "Shelf-Icon180X180");print("thumbnail")
+        if let thumbnail = cell.viewWithTag(15) as? UIImageView {
+            if comicvine.thumbnail != nil{
+        thumbnail.downloadImageUrl(urlString: comicvine.iconUrl!, defaultThumbnail: "Shelf-Icon180X180");print("thumbnail")
+            }
+        }
+        /*if let thumbnail = cell.viewWithTag(15) as? UIImageView {
+            if let thumbnailData = comicvine.thumbnail {
+                thumbnail.image = UIImage(data: thumbnailData)
+            }
+        }*/
 
         return cell
     }

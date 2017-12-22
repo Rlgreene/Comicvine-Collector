@@ -16,6 +16,7 @@ class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var saleDateLabel: UILabel!
     var comicvine: Comicvine?
     var collection: Collection?
+    var newComic: Comicvine?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +114,10 @@ class SearchDetailsViewController: UIViewController {
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if (segue.identifier == "coverView") {
         let destination = segue.destination as! CoverViewController
+        destination.comicvine = comicvine
+    }
+    if (segue.identifier == "addIssue"){
+        let destination = segue.destination as! CollectionTableViewController
         destination.comicvine = comicvine
     }
    }

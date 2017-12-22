@@ -15,6 +15,7 @@ class CollectionTableViewController: UITableViewController {
     var initialLoad : Bool = false
     var newComics: [Comicvine] = []
     var comicvine: Comicvine?
+    var newComic: Comicvine?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -136,24 +137,35 @@ class CollectionTableViewController: UITableViewController {
         }    
     }
     
+    //when adding from SearchTableView or DetailsView
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let c = collections[indexPath.row]
         for comicvine in newComics {
             c.addIssue(issue: comicvine)
         }
         newComics = []
+        //creates empty array so just tapping a collection cell without the intention of adding doesnt add previously added issues
     }
+    
     
     //Sends the selected data from SearchTableViewController to this vc via unwind segue to avoid creating a duplicate vc (called first in Search's prepareforsegue)
     @IBAction func unwindToCollectionsTableView(sender: UIStoryboardSegue)
     {
         let sourceViewController = sender.source as! SearchTableViewController
         newComics = sourceViewController.selectedComics!
-        // Pull any data from the view controller that initiated the unwind segue.
+        // Pull any data from the view controller that initiated the unwind segue and fill the newComics array.
         
         sourceViewController.selectedComics = []
         //reset the array of selected comics to clear up for the next add cycle
     }
+    
+    //Does the same as the block above just with a different sourceVC
+    @IBAction func unwindFromDetailsView(sender: UIStoryboardSegue)
+    {
+     let sourceViewController = sender.source as! SearchDetailsViewController
+        newComics = [sourceViewController.comicvine!]
+    }
+    
     
     @objc func toggleEdit(isEditing: Bool, animated: Bool) {
         tableView.setEditing(!tableView.isEditing, animated: true)
@@ -177,14 +189,6 @@ class CollectionTableViewController: UITableViewController {
         tableView.reloadData()
         print("reloaded rearranging")
     }
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
     
     //Call this function after any method that edits so that changes are saved
     func autoSave() {

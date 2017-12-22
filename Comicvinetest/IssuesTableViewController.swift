@@ -70,7 +70,7 @@ class IssuesTableViewController: UITableViewController {
                 thumbnail.downloadImageUrl(urlString: comicvine.iconUrl!, defaultThumbnail: "Shelf-Icon180X180");print("thumbnail")
             } else if comicvine.iconUrl == nil {
                 thumbnail.image = UIImage(named: "Shelf-Icon180X180")
-                //important for collections that were made before thumbnails were created, displays shelf logo instead of thumbnail
+                //important for collections that were made before thumbnails update, displays Shelf logo instead of thumbnail
             }
         }
         
@@ -119,7 +119,6 @@ class IssuesTableViewController: UITableViewController {
                 c.issues?.remove(at: indexPath.row)
                 // Delete the row from the data source
                 tableView.deleteRows(at: [indexPath], with: .fade)
-                //autoSave()
                 tableView.reloadData()
                 print("reloaded delete")
             }

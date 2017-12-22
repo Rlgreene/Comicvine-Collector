@@ -34,7 +34,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         
         let searchParameters:[String:Any] = ["api_key": "6121b778a49a69f39054e929a1b6d89d74d74e10",
                                              "format": "json",
-                                             "limit": 100,
+                                             "limit": 50,
                                              "query": searchString,
                                              "resources": "issue",
                                              "resource-type": "issue"

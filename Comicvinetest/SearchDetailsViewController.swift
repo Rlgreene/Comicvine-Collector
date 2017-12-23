@@ -14,6 +14,7 @@ class SearchDetailsViewController: UIViewController {
     @IBOutlet weak var coverView: UIImageView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var saleDateLabel: UILabel!
+    @IBOutlet weak var aRButton: UIButton!
     var comicvine: Comicvine?
     var collection: Collection?
     var newComic: Comicvine?
@@ -119,6 +120,14 @@ class SearchDetailsViewController: UIViewController {
     if (segue.identifier == "addIssue"){
         let destination = segue.destination as! CollectionTableViewController
         destination.comicvine = comicvine
+    }
+    if (segue.identifier == "coverARView") {
+        if #available(iOS 11.0, *) {
+            let destination = segue.destination as! ARViewController
+            destination.comicvine = comicvine
+        } else {
+            // Fallback on earlier versions
+        }
     }
    }
     

@@ -112,7 +112,7 @@ class SearchTableViewController: UITableViewController, UISearchBarDelegate {
         let searchThumbnail = cell.viewWithTag(16) as? UIImageView
         
         searchThumbnail?.downloadImageUrl(urlString: comicvine.iconUrl!, defaultThumbnail: "Shelf-Icon180X180"); print("thumbnail")
-        //Asynchonously load and cache thumbnails, smooth scrolling, uses default thumbnail for images being downloaded
+        //Asynchonously loads and caches thumbnails, smooth scrolling, uses default thumbnail for images being downloaded
         
         if let s = comicvine.saleDate {
             cell.textLabel?.text = comicvine.name! + " " + comicvine.issueNumber! + ": " + s

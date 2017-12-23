@@ -18,6 +18,8 @@
 		0E3BEC031F98EB76008B559D /* IssuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3BEC021F98EB76008B559D /* IssuesTableViewController.swift */; };
 		0E47C2211F855BA700AEA3CC /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */; };
 		0E47C2231F86722500AEA3CC /* Comicvine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47C2221F86722500AEA3CC /* Comicvine.swift */; };
+		0E7A419C1FEDC6E400B87DFB /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E7A419B1FEDC6E400B87DFB /* ARViewController.swift */; };
+		0E7A419E1FEDC71500B87DFB /* Assets.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E7A419D1FEDC71500B87DFB /* Assets.scnassets */; };
 		0EA35BF41F7C625400842F4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA35BF31F7C625400842F4B /* AppDelegate.swift */; };
 		0EA35BF91F7C625400842F4B /* MainOld.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BF71F7C625400842F4B /* MainOld.storyboard */; };
 		0EA35BFB1F7C625400842F4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA35BFA1F7C625400842F4B /* Assets.xcassets */; };
@@ -58,6 +60,8 @@
 		0E3BEC021F98EB76008B559D /* IssuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewController.swift; sourceTree = "<group>"; };
 		0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		0E47C2221F86722500AEA3CC /* Comicvine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comicvine.swift; sourceTree = "<group>"; };
+		0E7A419B1FEDC6E400B87DFB /* ARViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		0E7A419D1FEDC71500B87DFB /* Assets.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Assets.scnassets; sourceTree = "<group>"; };
 		0EA35BF01F7C625400842F4B /* Comicvinetest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Comicvinetest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA35BF31F7C625400842F4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA35BF81F7C625400842F4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainOld.storyboard; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 				0EA35BFC1F7C625400842F4B /* LaunchScreen.storyboard */,
 				0E2F6B5A1FBDF67A00C463B6 /* MainNew.storyboard */,
 				0EA35BF31F7C625400842F4B /* AppDelegate.swift */,
+				0E7A419B1FEDC6E400B87DFB /* ARViewController.swift */,
 				0E47C2201F855BA700AEA3CC /* SearchTableViewController.swift */,
 				0ECDCAC51F8D69A5008DEB8C /* SearchDetailsViewController.swift */,
 				0ECDCAC71F955B16008DEB8C /* CollectionTableViewController.swift */,
@@ -129,6 +134,7 @@
 				0E3BEC021F98EB76008B559D /* IssuesTableViewController.swift */,
 				0E209A8C1FD8A17A003D91AB /* CoverViewController.swift */,
 				0EA35BF71F7C625400842F4B /* MainOld.storyboard */,
+				0E7A419D1FEDC71500B87DFB /* Assets.scnassets */,
 				0EA35BFA1F7C625400842F4B /* Assets.xcassets */,
 				0EA35BFF1F7C625400842F4B /* Info.plist */,
 				0E209A8E1FD8F270003D91AB /* Custom Classes */,
@@ -210,6 +216,7 @@
 				0EA35BFE1F7C625400842F4B /* LaunchScreen.storyboard in Resources */,
 				0EA35BFB1F7C625400842F4B /* Assets.xcassets in Resources */,
 				0EA35C061F7C62A400842F4B /* Cartfile in Resources */,
+				0E7A419E1FEDC71500B87DFB /* Assets.scnassets in Resources */,
 				0E3243D31F7D330B00EBCA3A /* Default-568h@2x.png in Resources */,
 				0E2F6B5B1FBDF67A00C463B6 /* MainNew.storyboard in Resources */,
 				0EA35BF91F7C625400842F4B /* MainOld.storyboard in Resources */,
@@ -246,6 +253,7 @@
 				0ECDCAC81F955B16008DEB8C /* CollectionTableViewController.swift in Sources */,
 				0E3BEC011F96B19C008B559D /* CollectionNamingViewController.swift in Sources */,
 				0E209A8D1FD8A17A003D91AB /* CoverViewController.swift in Sources */,
+				0E7A419C1FEDC6E400B87DFB /* ARViewController.swift in Sources */,
 				0ECDCAC61F8D69A5008DEB8C /* SearchDetailsViewController.swift in Sources */,
 				0E37AE991FE5570400599915 /* Extensions.swift in Sources */,
 				0E3BEBFF1F96A969008B559D /* Collection.swift in Sources */,
@@ -398,7 +406,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comictest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -421,7 +429,7 @@
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = Comicvinetest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Greene.rlg.Comictest;

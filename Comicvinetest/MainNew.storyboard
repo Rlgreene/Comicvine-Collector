@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Label your Shelf" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q4h-WE-FCI">
-                                <rect key="frame" x="16" y="114" width="343" height="30"/>
+                                <rect key="frame" x="16" y="166" width="343" height="30"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="yes" returnKeyType="done" textContentType="name"/>
@@ -139,12 +139,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6OY-06-I1h">
-                                <rect key="frame" x="0.0" y="69" width="375" height="33"/>
+                                <rect key="frame" x="0.0" y="69" width="375" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="-1.5" height="-1.5"/>
+                                <size key="shadowOffset" width="-1.7" height="-1.7"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CoverDate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Z5L-sQ-rHF">
                                 <rect key="frame" x="50" y="588" width="275" height="22"/>
@@ -152,35 +152,35 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="-1.5" height="-1.5"/>
+                                <size key="shadowOffset" width="-1.7" height="-1.7"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="SaleDate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="a4F-yc-c8R">
-                                <rect key="frame" x="50" y="565" width="275" height="22"/>
+                                <rect key="frame" x="50" y="559" width="275" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="-1.5" height="-1.5"/>
+                                <size key="shadowOffset" width="-1.7" height="-1.7"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUb-ho-60P">
-                                <rect key="frame" x="0.0" y="140" width="375" height="366"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="378"/>
                                 <connections>
                                     <segue destination="Yhi-Bu-N5D" kind="show" identifier="coverView" id="7RQ-cL-v49"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aO2-Cg-NjO" userLabel="Cover View">
-                                <rect key="frame" x="0.0" y="140" width="375" height="366"/>
+                                <rect key="frame" x="0.0" y="128" width="375" height="378"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="issue number" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2wR-PT-Zhu">
-                                <rect key="frame" x="0.0" y="110" width="375" height="22"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="-1.5" height="-1.5"/>
+                                <size key="shadowOffset" width="-1.7" height="-1.7"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT0-9j-yWj">
-                                <rect key="frame" x="143" y="527" width="89" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AT0-9j-yWj">
+                                <rect key="frame" x="143" y="521" width="89" height="30"/>
                                 <color key="backgroundColor" red="0.0064504666892871475" green="0.68369257096246983" blue="0.85682480569948183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="  View in AR  ">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -193,9 +193,9 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="a4F-yc-c8R" firstAttribute="top" secondItem="AT0-9j-yWj" secondAttribute="bottom" constant="8" id="1yz-ag-8zI"/>
-                            <constraint firstItem="aO2-Cg-NjO" firstAttribute="centerX" secondItem="2wR-PT-Zhu" secondAttribute="centerX" id="3VD-d8-bVX"/>
+                            <constraint firstItem="aO2-Cg-NjO" firstAttribute="centerX" secondItem="NJS-K2-Sh2" secondAttribute="centerX" id="3VD-d8-bVX"/>
                             <constraint firstItem="AT0-9j-yWj" firstAttribute="centerX" secondItem="5vE-LM-I2o" secondAttribute="centerX" id="7c3-Be-31N"/>
-                            <constraint firstItem="AT0-9j-yWj" firstAttribute="top" secondItem="aO2-Cg-NjO" secondAttribute="bottom" constant="21" id="AAr-fo-yxx"/>
+                            <constraint firstItem="AT0-9j-yWj" firstAttribute="top" secondItem="aO2-Cg-NjO" secondAttribute="bottom" constant="15" id="AAr-fo-yxx"/>
                             <constraint firstItem="qUb-ho-60P" firstAttribute="trailing" secondItem="aO2-Cg-NjO" secondAttribute="trailing" id="BH0-np-J5K"/>
                             <constraint firstItem="2wR-PT-Zhu" firstAttribute="leading" secondItem="NJS-K2-Sh2" secondAttribute="leading" id="HW9-iK-apG"/>
                             <constraint firstItem="a4F-yc-c8R" firstAttribute="leading" secondItem="NJS-K2-Sh2" secondAttribute="leading" constant="50" id="IV2-Gu-ndu"/>
@@ -204,7 +204,7 @@
                             <constraint firstItem="6OY-06-I1h" firstAttribute="top" secondItem="NJS-K2-Sh2" secondAttribute="top" constant="5" id="USp-o6-CVV"/>
                             <constraint firstItem="aO2-Cg-NjO" firstAttribute="leading" secondItem="NJS-K2-Sh2" secondAttribute="leading" id="UZU-Wj-DdI"/>
                             <constraint firstItem="aO2-Cg-NjO" firstAttribute="trailing" secondItem="NJS-K2-Sh2" secondAttribute="trailing" id="VIq-GF-wvX"/>
-                            <constraint firstItem="2wR-PT-Zhu" firstAttribute="top" secondItem="6OY-06-I1h" secondAttribute="bottom" constant="8" id="XeK-o8-hTc"/>
+                            <constraint firstItem="2wR-PT-Zhu" firstAttribute="top" secondItem="6OY-06-I1h" secondAttribute="bottom" constant="6" id="XeK-o8-hTc"/>
                             <constraint firstItem="Z5L-sQ-rHF" firstAttribute="leading" secondItem="NJS-K2-Sh2" secondAttribute="leading" constant="50" id="Xu5-rm-xUB"/>
                             <constraint firstItem="NJS-K2-Sh2" firstAttribute="trailing" secondItem="a4F-yc-c8R" secondAttribute="trailing" constant="50" id="aSw-uZ-HbS"/>
                             <constraint firstItem="6OY-06-I1h" firstAttribute="leading" secondItem="2wR-PT-Zhu" secondAttribute="leading" id="dq6-AD-kbn"/>
@@ -215,7 +215,7 @@
                             <constraint firstItem="aO2-Cg-NjO" firstAttribute="centerX" secondItem="5vE-LM-I2o" secondAttribute="centerX" id="oYB-S2-83Q"/>
                             <constraint firstItem="NJS-K2-Sh2" firstAttribute="bottom" secondItem="aO2-Cg-NjO" secondAttribute="bottom" constant="112" id="p2h-cw-QaB"/>
                             <constraint firstItem="qUb-ho-60P" firstAttribute="top" secondItem="2wR-PT-Zhu" secondAttribute="bottom" constant="8" id="q6y-9y-j3K"/>
-                            <constraint firstItem="qUb-ho-60P" firstAttribute="centerY" secondItem="NJS-K2-Sh2" secondAttribute="centerY" constant="-18" id="qbn-UA-SvB"/>
+                            <constraint firstItem="qUb-ho-60P" firstAttribute="centerY" secondItem="NJS-K2-Sh2" secondAttribute="centerY" constant="-24" id="qbn-UA-SvB"/>
                             <constraint firstItem="NJS-K2-Sh2" firstAttribute="trailing" secondItem="6OY-06-I1h" secondAttribute="trailing" id="qs3-4g-k2j"/>
                             <constraint firstItem="Z5L-sQ-rHF" firstAttribute="top" secondItem="a4F-yc-c8R" secondAttribute="bottom" constant="1" id="rKv-aw-LPR"/>
                             <constraint firstItem="NJS-K2-Sh2" firstAttribute="trailing" secondItem="Z5L-sQ-rHF" secondAttribute="trailing" constant="50" id="rWu-SG-mPb"/>
@@ -223,7 +223,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NJS-K2-Sh2"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ckr-AI-yPk">
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="ckr-AI-yPk">
                         <barButtonItem key="rightBarButtonItem" title="Add To" id="cl2-Tt-yhj">
                             <connections>
                                 <segue destination="9l2-PD-gZ7" kind="unwind" unwindAction="unwindFromDetailsViewWithSender:" id="fef-Kq-wkK"/>
@@ -367,12 +367,15 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1r5-oP-N8U" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Shelves" image="glyphicons-72-book" id="Sdn-Rb-Ivg"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ifq-dh-K5y">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Ifq-dh-K5y">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.31659984159999999" green="0.19086675049999999" blue="0.77074562820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.016494304349999999" green="0.80736785430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" red="0.016494304349999999" green="0.80736785430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -391,14 +394,17 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uhL-Yt-bRK" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search to Add" image="glyphicons-28-search" id="JWO-E0-fC2"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Jbb-GQ-9aH">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Jbb-GQ-9aH">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.31659984159999999" green="0.19086675049999999" blue="0.77074562820000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.016494304349999999" green="0.80736785430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <color key="textShadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" red="0.016494304349999999" green="0.80736785430000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -476,7 +482,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c8h-rv-FF1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="b9D-mw-3if" customClass="SCNScene"/>
             </objects>
-            <point key="canvasLocation" x="1788" y="-1549.4752623688157"/>
+            <point key="canvasLocation" x="1788" y="-1505"/>
         </scene>
     </scenes>
     <resources>

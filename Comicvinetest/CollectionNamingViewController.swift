@@ -16,6 +16,8 @@ class CollectionNamingViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Edit Shelf Name"
+        
         let backgroundImage = UIImage(named: "background4Longbox.jpg")
         let backgroundImageView = UIImageView(frame: self.view.frame)
         backgroundImageView.image = backgroundImage

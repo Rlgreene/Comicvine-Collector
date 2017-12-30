@@ -55,7 +55,7 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
         UIApplication.shared.isIdleTimerDisabled = true
         
         // Show debug UI to view performance metrics (e.g. frames per second).
-        sceneView.showsStatistics = true
+        //sceneView.showsStatistics = true
     }
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -190,6 +190,14 @@ class ARViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     private func resetTracking() {
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
+        sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
+    }
+    @IBAction func reset(_ sender: Any) {
+        let configuration = ARWorldTrackingConfiguration()
+        sceneView.session.pause()
+        sceneView.scene.rootNode.enumerateChildNodes { (node, stop) in
+            node.removeFromParentNode()
+        }
         sceneView.session.run(configuration, options: [.resetTracking, .removeExistingAnchors])
     }
 }
